@@ -1,0 +1,21 @@
+db
+
+users
+- have many questions
+- have many comments
+- have many answers
+
+questions
+- belong to a user
+- have many answers
+- have many comments as: :commentable
+
+answers
+- belong to a user
+- belong to a question
+- have many comments
+
+comments
+- belong to commentable (questions, answers)
+- belong to a user
+
