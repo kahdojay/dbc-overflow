@@ -13,3 +13,124 @@
  *= require_tree .
  *= require_self
  */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.container {
+  width: 90%;
+  height: 100%;
+  text-align: center;
+  margin-left: 5%;
+}
+
+header{
+  background-color: white;
+  margin: 10px;
+  height: 110px;
+  border-bottom: 2px solid #B0C4DE;
+}
+
+h1{
+  font-family: 'Lobster', cursive;
+  color: #B0C4DE;
+  position: relative;
+  float: left;
+  font-size: 3em;
+  margin: 20px;
+}
+
+h2{
+  font-family: 'Lobster', cursive;
+  margin: 20px;
+  color: #1c6551;
+  font-size: 2em;
+}
+
+h3{
+  font-family: 'Abel', sans-serif;
+  font-size: 1em;
+}
+
+h4{
+  font-family: 'Abel', sans-serif;
+  font-size: 1.3em;
+}
+
+
+
+.button_to input{
+  background: transparent;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  border: 1.5px solid #B0C4DE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  font-family: 'Abel', sans-serif;
+  margin-bottom: 10px;
+  padding: 5px;
+
+}
+
+
+input, textarea {
+  line-height: 1em;
+  font-size: 1em;
+  font-family: 'Abel', sans-serif;
+  border: 3px solid #B0C4DE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+button{
+  background: transparent;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  border: 1.5px solid #B0C4DE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  font-family: 'Abel', sans-serif;
+  margin-bottom: 10px;
+}
+
+select{
+  font-family: 'Abel', sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  border: 1px solid #B0C4DE;
+  background: transparent;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ececec;
+  text-decoration: underline;
+}
+
+ul li {
+  position: relative;
+  margin: 10px auto;
+  font-family: 'Abel', sans-serif;
+}
+
+
+ul li h3 {
+  position: absolute;
+  bottom: -18px;
+  left: 17px;
+  font-size: 2em;
+}
+ul a {
+  font-size: 1.5em;
+  color: #ccc;
+}
+ul a:hover {
+}
+
