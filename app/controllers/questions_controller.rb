@@ -3,6 +3,10 @@ class QuestionsController < ApplicationController
   def new
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def create
     params[:question][:user_id] = 1
     @question = Question.new(question_params)
