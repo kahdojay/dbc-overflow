@@ -19,3 +19,12 @@ comments
 - belong to commentable (questions, answers)
 - belong to a user
 
+SESSIONS
+#define login route
+  session is created upon login with valid credentials
+  user redirected to login with invalid credentials
+    #define error helper(s)
+    user sees error message with invalid credentials
+#define logout route
+  session is destroyed upon logout
+  user is redirected to root upon logout
