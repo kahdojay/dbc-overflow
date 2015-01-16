@@ -27,6 +27,14 @@ describe UsersController do
 
 	end
 
+	describe 'POST #create' do
+
+		before :each do
+
+		end
+
+	end
+
 	describe 'GET #show' do
 
 		before :each do
@@ -40,4 +48,27 @@ describe UsersController do
 
 	end
 
+	describe 'GET #edit' do
+
+		before :each do
+			@user = FactoryGirl.create( :user )
+			get :edit, id: @user.id
+		end
+
+		it "renders the #show template" do
+			expect(response).to render_template :edit
+		end
+	end	
+	# describe 'create a user' do
+	# 	before :each do
+	# 		User.create(name: "bob", password: "fox")
+	# 	end
+	# end
+
+	# describe 'user access' do
+	# 	before :each do
+	# 		@user = create(:user)
+	# 		session[:user_id] = @user.id
+	# 	end
+	# end	
 end
