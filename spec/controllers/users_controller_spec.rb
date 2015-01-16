@@ -26,6 +26,18 @@ describe UsersController do
 		end
 
 	end
+
+	describe 'Get #show' do
+
+		before :each do
+			get :show
+		end
+
+		it "renders the #show template" do
+			expect(response).to render_template :show
+		end
+
+	end
 	# describe 'create a user' do
 	# 	before :each do
 	# 		User.create(name: "bob", password: "fox")
