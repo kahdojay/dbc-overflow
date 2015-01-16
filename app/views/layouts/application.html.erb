@@ -14,6 +14,26 @@
     <body>
       <header>
         <h1>DBC Overflow</h1>
+        <nav>
+          <ul>
+            <li>
+              <%= button_to 'Login' %>
+            </li>
+            <li>
+              <%= button_to 'Signup' %>
+            </li>
+            <li>
+              <%= form_tag("/search", method: "get") do %>
+                <%= text_field_tag(:q) %>
+                <%= submit_tag("Search") %>
+              <% end %>
+            </li>
+          </ul>
+
+
+        </nav>
+
+
       </header>
       <%= yield %>
     </body>
