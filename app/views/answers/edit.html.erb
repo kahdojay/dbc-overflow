@@ -1,0 +1,10 @@
+<br>
+<%= form_for :answer, method: "put", url: {action: "update"} do |f| %>
+  Body: <%= f.text_field :body %><br>
+  <%= f.submit "Submit" %>
+<% end %>
+<br>
+
+<%= form_for :answer, method:"delete", url: {action: "destroy"} do |f| %>
+  <%= f.submit "Delete" %>
+<% end %>

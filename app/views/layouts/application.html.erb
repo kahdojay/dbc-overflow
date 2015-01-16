@@ -16,12 +16,16 @@
         <h1>DBC Overflow</h1>
         <nav>
           <ul>
-            <li>
-              <%= button_to 'Login' %>
-            </li>
-            <li>
-              <%= button_to 'Signup' %>
-            </li>
+            <% if logged_in? %>
+              <li><%= button_to 'Logout', logout_path, method: :get %></li>
+            <% else %>
+              <li>
+                <%= button_to 'Login', login_path, method: :get %>
+              </li>
+              <li>
+                <%= button_to 'Signup' %>
+              </li>
+            <% end %>
             <li>
               <%= form_tag("/search", method: "get", id: "search_form") do %>
                 <%= text_field_tag(:q) %>
@@ -29,11 +33,7 @@
               <% end %>
             </li>
           </ul>
-
-
         </nav>
-
-
       </header>
       <%= yield %>
     </body>
