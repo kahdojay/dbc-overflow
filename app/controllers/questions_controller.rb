@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
       redirect_to question_path(@question)
     else
       #error_message?
-      redirect_to :back
+      render :new
     end
   end
 
