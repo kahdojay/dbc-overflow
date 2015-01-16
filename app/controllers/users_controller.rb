@@ -30,8 +30,12 @@ class UsersController < ApplicationController
 
 		def user_params
 			params.require(:user).permit(:name, :password, :password_confirmation)
+<<<<<<< HEAD
 		end
 
 
+=======
+    end
+>>>>>>> fixing create action for users controller
 
 end
