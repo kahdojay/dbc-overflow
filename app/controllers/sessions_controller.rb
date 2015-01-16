@@ -4,8 +4,14 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(name: login_params[:name])
-    session[:id] = user.id
-    redirect_to root_url
+    if user
+      p user.authenticate(login_params[:password])
+      session[:id] = user.id
+      redirect_to root_url
+    else
+      # display error
+      render 'login'
+    end
   end
 
   def logout
