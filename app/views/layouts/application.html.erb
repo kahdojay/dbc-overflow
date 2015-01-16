@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='//fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
   <title>PDFMHDbcOverflow</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<div class="wrapper">
+    <body>
+      <header>
+        <h1>DBC Overflow</h1>
+        <nav>
+          <ul>
+            <li>
+              <%= button_to 'Login' %>
+            </li>
+            <li>
+              <%= button_to 'Signup' %>
+            </li>
+            <li>
+              <%= form_tag("/search", method: "get") do %>
+                <%= text_field_tag(:q) %>
+                <%= submit_tag("Search") %>
+              <% end %>
+            </li>
+          </ul>
 
-<%= yield %>
 
-</body>
+        </nav>
+
+
+      </header>
+      <%= yield %>
+    </body>
+  </div>
 </html>
