@@ -30,7 +30,8 @@ describe UsersController do
 	describe 'GET #show' do
 
 		before :each do
-			get :show
+			@user = FactoryGirl.create( :user )
+			get :show, id: @user.id
 		end
 
 		it "renders the #show template" do
@@ -38,16 +39,5 @@ describe UsersController do
 		end
 
 	end
-	# describe 'create a user' do
-	# 	before :each do
-	# 		User.create(name: "bob", password: "fox")
-	# 	end
-	# end
 
-	# describe 'user access' do
-	# 	before :each do
-	# 		@user = create(:user)
-	# 		session[:user_id] = @user.id
-	# 	end
-	# end	
 end
