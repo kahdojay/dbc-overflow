@@ -28,7 +28,27 @@ describe SessionsController do
         expect(response).to render_template('sessions/login')
       end
 
-      xit 'displays an error message for users with invalid credentials'
+      it 'displays an error message for users with invalid credentials' do
+        # TODO: write test once error helpers are defined
+      end
+    end
+  end
+
+  describe '#logout' do
+    before :each do
+      @user = FactoryGirl.create(:user)
+      post :create, user: @user.attributes
+    end
+
+    it 'clears the session[:id]' do
+      expect(session[:id]).to eq(@user.id)
+      get :logout, id: @user
+      expect(session[:id]).to eq(nil)
+    end
+
+    it 'redirects the user to the root_url' do
+      get :logout, id: @user
+      expect(response).to redirect_to root_url
     end
   end
 end
