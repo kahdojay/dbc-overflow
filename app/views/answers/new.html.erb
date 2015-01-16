@@ -1,4 +1,5 @@
-<%= form_for :answer , url: {action: "create"} do |f| %>
+<%= form_for [question, answer] do |f| %>
   Body: <%= f.text_field :body %><br>
+  <%= f.hidden_field :user_id, value: 1 %>
   <%= f.submit "Submit" %>
 <% end %>
