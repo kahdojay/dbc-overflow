@@ -14,10 +14,10 @@ class AnswersController < ApplicationController
   end
 
   def create
-    question = Question.new(params[:question_id])
-    question.answers.create(answers_params)
-    redirect_to questions_path
-    render 'new'
+    params[:answer][:user_id] = 1
+    question = Question.find(params[:question_id])
+    answer = question.answers.create(answers_params)
+    redirect_to question_path(question, "answers" => answer.id)
   end
 
   def edit
@@ -27,7 +27,7 @@ class AnswersController < ApplicationController
   def update
     @answer = Answer.find(params[:id])
     if @answer.update_attributes(params[:answer])
-      redirect_to questions_path
+      redirect_to question_answer_path
     else
       render 'edit'
     end
@@ -41,7 +41,7 @@ class AnswersController < ApplicationController
   end
 
   def answers_params
-    params.require(:answer).permit(:body)
+    params.require(:answer).permit(:body, :user_id)
 
   end
 
