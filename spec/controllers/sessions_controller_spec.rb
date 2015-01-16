@@ -19,7 +19,9 @@ describe SessionsController do
     end
 
     # context 'without valid credentials' do
-    #   xit 'redirects a user with invalid credentials to the login page'
+    #   it 'renders the login page' do
+    #     expect(response).to render 'login'
+    #   end
     #   xit 'displays an error message for users with invalid credentials'
     # end
   end
