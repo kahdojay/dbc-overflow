@@ -1,5 +1,6 @@
 <% @questions.each do |q| %>
-<a href="/">
+
+<a href="/questions/<%= q.id %>">
   <h2> <%= q.title %> <%= q.updated_at %> </h2>
   <p class='question_body'> <%= q.body %> </p>
 
