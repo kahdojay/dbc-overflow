@@ -1,20 +1,19 @@
+require 'factory_girl'
 require 'rails_helper'
 
 describe SessionsController do
   describe '#login' do
     context 'with valid credentials' do
       before :each do
+        @user = FactoryGirl.create(:user)
+        post :create, user: @user.attributes
       end
 
-      it 'creates a session upon login' do
-        user = FactoryGirl.create(:user)
-        post :create, user: user.attributes
-        expect(session[:id]).to eq(user.id)
+      it 'upon login, sets session[:id] to the user\'s id' do
+        expect(session[:id]).to eq(@user.id)
       end
 
       it 'redirects to root_url upon successful login' do
-        user = FactoryGirl.create(:user)
-        post :create, user: user.attributes
         expect(response).to redirect_to root_url
       end
     end
