@@ -30,7 +30,7 @@ describe UsersController do
 	describe 'POST #create' do
 
 		before :each do
-
+			
 		end
 
 	end
@@ -58,7 +58,28 @@ describe UsersController do
 		it "renders the #show template" do
 			expect(response).to render_template :edit
 		end
-	end	
+
+	end
+
+	describe 'PUT #update' do
+
+		before :each do
+			@user = FactoryGirl.create( :user )
+			get :edit, id: @user.id
+		end
+
+	end
+
+	describe 'DELETE #destroy' do
+
+		before :each do
+			@user = FactoryGirl.create( :user )
+			get :edit, id: @user.id
+		end
+
+	end
+
+
 	# describe 'create a user' do
 	# 	before :each do
 	# 		User.create(name: "bob", password: "fox")
