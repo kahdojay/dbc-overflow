@@ -65,12 +65,18 @@ h4{
 }
 
 .question_body{
-  font-size: 1em;
+  font-size: 1.3em;
   font-family: 'Abel', sans-serif;
   margin: 20px;
   padding: 5px;
 }
 
+.new_answer{
+  font-size: 1.3em;
+  font-family: 'Abel', sans-serif;
+  margin: 20px;
+  padding: 5px;
+}
 
 
 .button_to input{

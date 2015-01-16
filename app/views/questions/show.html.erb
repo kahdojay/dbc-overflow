@@ -1,11 +1,15 @@
 <div class='container'>
   <h2><%= @question.title %></h2>
 
-  <p><%= @question.body %></p>
+  <p class='question_body'><%= @question.body %></p>
+
+
 
   <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
 
-  <% @question.answers.each do |answer| %>
-    <%= answer.body %> by <br>
-  <% end %>
+
+    <% @question.answers.each do |answer| %>
+      <%= answer.body %> <br>
+    <% end %>
+
 </div>

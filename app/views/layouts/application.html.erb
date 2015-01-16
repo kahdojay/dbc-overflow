@@ -13,18 +13,20 @@
 <div class="wrapper">
     <body>
       <header>
-        <h1>DBC Overflow</h1>
+        <a href='/'><h1>DBC Overflow</h1></a>
         <nav>
           <ul>
             <% if logged_in? %>
               <h2>Hello, <%= current_user.name %>! </h2>
+              <li><%= button_to 'New Question', new_question_path, method: :get %>
+              </li>
               <li><%= button_to 'Logout', logout_path, method: :get %></li>
             <% else %>
               <li>
                 <%= button_to 'Login', login_path, method: :get %>
               </li>
               <li>
-                <%= button_to 'Signup' %>
+                <%= button_to 'Signup', new_user_path, method: :get %>
               </li>
             <% end %>
             <li>

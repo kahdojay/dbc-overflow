@@ -2,6 +2,8 @@
 
 <%= label :title, "Title: " %>
 <%= f.text_field :title %><br><br>
+<%= f.hidden_field :user_id, value: current_user.id %><br><br>
+
 
 <%= f.text_area :body %><br><br>
 
