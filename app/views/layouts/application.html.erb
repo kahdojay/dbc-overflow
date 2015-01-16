@@ -17,6 +17,7 @@
         <nav>
           <ul>
             <% if logged_in? %>
+              <h2>Hello, <%= current_user.name %>! </h2>
               <li><%= button_to 'Logout', logout_path, method: :get %></li>
             <% else %>
               <li>

@@ -19,10 +19,9 @@
   position: absolute;
 }
 .container {
-  width: 90%;
+  width: 95%;
   height: 100%;
-  text-align: center;
-  margin-left: 5%;
+  margin: 0 auto;
 }
 
 header{
@@ -41,7 +40,7 @@ nav ul li{
 
 h1{
   font-family: 'Droid Sans', sans-serif;
-
+  padding-left: 20px;
   position: relative;
   float: left;
   font-size: 3em;
@@ -52,7 +51,7 @@ h2{
   font-family: 'Oswald', sans-serif;
   margin: 20px;
   color: #1c6551;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 h3{
@@ -121,11 +120,12 @@ select{
 
 
 a {
+  color: #632728;
   text-decoration: none;
 }
 
 a:hover {
-  /*color: #ececec;*/
+  color: #177574;
   text-decoration: underline;
 }
 
