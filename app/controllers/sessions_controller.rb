@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include ErrorsHelper
   def login
   end
 
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
       session[:id] = user.id
       redirect_to root_url
     else
-      # display error
+      set_error('Invalid login.')
       render 'login'
     end
   end
