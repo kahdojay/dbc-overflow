@@ -27,7 +27,7 @@ describe UsersController do
 
 	end
 
-	describe 'Get #show' do
+	describe 'GET #show' do
 
 		before :each do
 			get :show
