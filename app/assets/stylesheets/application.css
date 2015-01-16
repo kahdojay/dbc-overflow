@@ -29,12 +29,12 @@ header{
   background-color: white;
   margin: 10px;
   height: 110px;
-  border-bottom: 2px solid #B0C4DE;
+  border-bottom: 2px solid #ccc;;
 }
 
 h1{
-  font-family: 'Lobster', cursive;
-  color: #B0C4DE;
+  font-family: 'Droid Sans', sans-serif;
+
   position: relative;
   float: left;
   font-size: 3em;
@@ -42,7 +42,7 @@ h1{
 }
 
 h2{
-  font-family: 'Lobster', cursive;
+  font-family: 'Oswald', sans-serif;
   margin: 20px;
   color: #1c6551;
   font-size: 2em;
@@ -56,6 +56,13 @@ h3{
 h4{
   font-family: 'Abel', sans-serif;
   font-size: 1.3em;
+}
+
+.question_body{
+  font-size: 1em;
+  font-family: 'Abel', sans-serif;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
 
