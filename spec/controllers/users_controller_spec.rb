@@ -84,17 +84,11 @@ describe UsersController do
 
 	end
 
+	private
 
-	# describe 'create a user' do
-	# 	before :each do
-	# 		User.create(name: "bob", password: "fox")
-	# 	end
-	# end
+		def user_params
+			params.require(:user).permit(:name, :password, :password_confirmation)
+    end
 
-	# describe 'user access' do
-	# 	before :each do
-	# 		@user = create(:user)
-	# 		session[:user_id] = @user.id
-	# 	end
-	# end	
+
 end
