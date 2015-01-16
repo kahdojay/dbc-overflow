@@ -8,12 +8,14 @@ describe SessionsController do
 
       it 'creates a session upon login' do
         user = FactoryGirl.create(:user)
-
-        # send user login params to session#create
         post :create, user: user.attributes
-
-        # expect session[:id] to be user.id
         expect(session[:id]).to eq(user.id)
+      end
+
+      it 'redirects to root_url upon successful login' do
+        user = FactoryGirl.create(:user)
+        post :create, user: user.attributes
+        expect(response).to redirect_to root_url
       end
     end
 
