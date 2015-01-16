@@ -1,5 +1,10 @@
 class AnswersController < ApplicationController
 
+  def show
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+  end
+
   def index
     @answers = Answer.all
   end
@@ -26,10 +31,6 @@ class AnswersController < ApplicationController
     else
       render 'edit'
     end
-  end
-
-  def show
-    @answer = Answer.find(params[:answer])
   end
 
   def destroy
