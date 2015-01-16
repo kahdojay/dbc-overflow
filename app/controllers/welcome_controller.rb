@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
   end
 
   def search
-    @questions = Question.search(params[:words])
+    @questions = Question.search(params[:q])
     render 'index'
   end
 end
