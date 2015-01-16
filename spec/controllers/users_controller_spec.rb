@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'rails_helper'
 
+describe UsersController do
 	describe 'GET #index' do
 		before :each do
 			get :index
@@ -22,4 +23,4 @@ require 'rails_helper'
 	# 		session[:user_id] = @user.id
 	# 	end
 	# end	
-# end
+end
