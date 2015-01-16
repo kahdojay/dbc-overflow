@@ -10,6 +10,6 @@ class Question < ActiveRecord::Base
     words.split(' ').each do |word|
       matches << Question.all.select { |q| q.title.include?(word) || q.body.include?(word) }
     end
-    matches.flatten
+    matches.flatten.uniq
   end
 end
