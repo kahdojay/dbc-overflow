@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
   end
 
   def new
-
+    render 'new'
   end
 
   def create
