@@ -23,7 +23,7 @@
               <%= button_to 'Signup' %>
             </li>
             <li>
-              <%= form_tag("/search", method: "get") do %>
+              <%= form_tag("/search", method: "get", id: "search_form") do %>
                 <%= text_field_tag(:q) %>
                 <%= submit_tag("Search") %>
               <% end %>
