@@ -27,10 +27,6 @@ describe SessionsController do
       it 'renders the login page' do
         expect(response).to render_template('sessions/login')
       end
-
-      it 'displays an error message for users with invalid credentials' do
-        # TODO: write test once error helpers are defined
-      end
     end
   end
 
