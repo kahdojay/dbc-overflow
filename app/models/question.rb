@@ -4,4 +4,12 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :body
   validates_presence_of :title
+
+  def self.search(words)
+    matches = []
+    words.split(' ').each do |word|
+      matches << Question.all.map { |q| q.title.include?(word) || q.body.include?(word) }
+    end
+    matches
+  end
 end
