@@ -1,8 +1,11 @@
-<% @questions.each do |q| %>
-<a href="/" id="<%= q.id %>">
-  <h2> <%= q.title %> <%= q.updated_at %> </h2>
-  <p class='question_body'> <%= q.body %> </p>
+<div class='container'>
+  <% @questions.each do |q| %>
+  <a href="/questions/<%= q.id %>" id="<%= q.id %>">
+    <h2> <%= q.title %> <%= q.updated_at %> </h2>
+    <p class='question_body'> <%= q.body %> </p>
 
-</a>
+  </a>
 
-<% end %>
+  <% end %>
+
+</div>
