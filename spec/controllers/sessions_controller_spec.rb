@@ -9,7 +9,7 @@ describe SessionsController do
         post :create, user: @user.attributes
       end
 
-      it 'upon login, sets session[:id] to the user\'s id' do
+      it 'sets session[:id] to the user\'s id' do
         expect(session[:id]).to eq(@user.id)
       end
 
@@ -18,11 +18,11 @@ describe SessionsController do
       end
     end
 
-    # context 'without valid credentials' do
-    #   it 'renders the login page' do
-    #     expect(response).to render 'login'
-    #   end
-    #   xit 'displays an error message for users with invalid credentials'
-    # end
+    context 'without valid credentials' do
+      it 'renders the login page' do
+        expect(response).to render_template 'sessions/login'
+      end
+      xit 'displays an error message for users with invalid credentials'
+    end
   end
 end
