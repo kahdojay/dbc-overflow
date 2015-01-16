@@ -1,8 +1,6 @@
-<p>
+
   <%= form_for [question, answer] do |f| %>
     <%= f.text_field :body, placeholder: 'add an answer' %><br>
     <%= f.hidden_field :user_id, value: 1 %>
     <%= f.submit "Submit" %>
   <% end %>
-
-</p>
