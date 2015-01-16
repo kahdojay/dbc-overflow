@@ -16,3 +16,4 @@ describe Answer do
     expect(answer.errors[:body]).to include("can't be blank")
   end
 end
+
