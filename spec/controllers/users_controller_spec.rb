@@ -30,7 +30,12 @@ describe UsersController do
 	describe 'POST #create' do
 
 		before :each do
-			
+			@user = FactoryGirl.create( :user )
+			post :create
+		end
+
+		it "redirects to #root" do
+			expect(response).to redirect_to :root
 		end
 
 	end
