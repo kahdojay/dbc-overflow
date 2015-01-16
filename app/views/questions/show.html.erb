@@ -3,8 +3,6 @@
 
   <p class='question_body'><%= @question.body %></p>
 
-
-
   <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
 
 
@@ -13,3 +11,4 @@
     <% end %>
 
 </div>
+
