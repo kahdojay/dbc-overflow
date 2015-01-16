@@ -8,8 +8,8 @@ describe SessionsController do
       end
 
       it 'creates a session upon login' do
-        # send user login params to create_session
-        # expect sessoin[:id] to be user.id
+        # send user login params to session#create
+        # expect session[:id] to be user.id
         expect(session[:id]).to eq(user.id)
       end
     end
