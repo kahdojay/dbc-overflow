@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     params[:question][:user_id] = 1
     @question = Question.new(question_params)
     if @question.save
-      redirect_to question_path(@question.id)
+      redirect_to question_path(@question)
     else
       #error_message?
       redirect_to :back
