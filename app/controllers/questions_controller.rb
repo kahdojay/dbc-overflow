@@ -9,10 +9,10 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
   def create
-    params[:question][:user_id] = 1
     @question = Question.new(question_params)
     if @question.save
       redirect_to question_path(@question)
