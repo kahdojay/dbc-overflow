@@ -19,9 +19,15 @@ describe SessionsController do
     end
 
     context 'without valid credentials' do
-      it 'renders the login page' do
-        expect(response).to render_template 'sessions/login'
+      before :each do
+        @invalid_user = User.create(name: '', password: '')
+        post :create, user: @invalid_user.attributes
       end
+
+      it 'renders the login page' do
+        expect(response).to render_template('sessions/login')
+      end
+
       xit 'displays an error message for users with invalid credentials'
     end
   end
