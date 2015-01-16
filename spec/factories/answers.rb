@@ -5,11 +5,3 @@ FactoryGirl.define do
         body "Check out the Rails Guides and you'll find the answer!"
     end
 end
-
-FactoryGirl.define do
-    factory :question do
-        user_id 1
-        title {Faker::Lorem.words}
-        body "This is the question"
-    end
-end
