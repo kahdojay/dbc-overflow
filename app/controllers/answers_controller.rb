@@ -25,10 +25,11 @@ class AnswersController < ApplicationController
       redirect_to questions_path
     else
       render 'edit'
+    end
   end
 
   def show
-    @answer = Answer.find(params[:id])
+    @answer = Answer.find(params[:answer])
   end
 
   def destroy
