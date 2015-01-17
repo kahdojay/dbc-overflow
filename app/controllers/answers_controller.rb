@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  include AuthsHelper
 
   def show
     @question = Question.find(params[:question_id])
@@ -21,11 +22,13 @@ class AnswersController < ApplicationController
   def edit
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
+    redirect_to root_path unless @answer.user_id == current_user.id
   end
 
   def update
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
+    redirect_to root_path unless @answer.user_id == current_user.id
     if @answer.update_attributes(answers_params)
       redirect_to question_path(@answer.question_id)
     else
@@ -35,6 +38,7 @@ class AnswersController < ApplicationController
 
   def destroy
     answer = Answer.find(params[:id])
+    redirect_to root_path unless answer.user_id == current_user.id
     answer.destroy
     redirect_to question_path(answer.question_id)
   end
