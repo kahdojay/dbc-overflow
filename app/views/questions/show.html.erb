@@ -2,10 +2,11 @@
   <h2><%= @question.title %><br>
   points: <%= @question.vote_count %>
   <% if logged_in? %>
-    <%= render partial: "votes/vote_buttons", locals: {votable_type: "Question", votable_id: @question.id} %></h2>
-  <% end %>
+    <%= render partial: "votes/vote_buttons", locals: {votable_type: "Question", votable_id: @question.id} %>
+  <% end %></h2>
   <p class='question_body'><%= @question.body %></p>
   <p class='question_tags'><%= @question.display_tags %></p>
+
 
   <% if logged_in? && @question.user_id == current_user.id %>
 
