@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  def create
+  def upvote
     vote = Vote.new(vote_params)
     if vote.save
       redirect_to :back
