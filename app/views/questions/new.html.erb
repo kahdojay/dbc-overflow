@@ -4,6 +4,9 @@
 <%= f.text_field :title %><br><br>
 <%= f.hidden_field :user_id, value: current_user.id %><br><br>
 
+<%= label_tag :tag %>
+<%= text_field_tag :tag %>
+
 
 <%= f.text_area :body %><br><br>
 
