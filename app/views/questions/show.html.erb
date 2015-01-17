@@ -7,9 +7,11 @@
   <p class='question_body'><%= @question.body %></p>
   <p class='question_tags'><%= @question.display_tags %></p>
 
+  <%= render template: "comments/show.html.erb", locals: { comments: @question.comments } %>
+
 
   <% if logged_in? && @question.user_id == current_user.id %>
-
+  <% end %>
 
   <% if @question.user_id == current_user.id %>
     <%= button_to "Edit", {action: "edit"}, method: "get" %>
@@ -25,11 +27,12 @@
       <h3><%= answer.vote_count %><%= answer.body %></h3>
         <% if logged_in? %>
           <%= render partial: "votes/vote_buttons", locals: {votable_type: "Answer", votable_id: answer.id} %>
-          <%= render template: "comments/new.html.erb", locals: { q_id: @question.id, commentable_id: @answer.id, commentable_type: "Answer"} %>
+          <%= render template: "comments/new.html.erb", locals: { q_id: @question.id, commentable_id: answer.id, commentable_type: "Answer"} %>
           <% if current_user.id == answer.user_id %>
             <%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
           <% end %>
         <% end %>
+        <%= render template: "comments/show.html.erb", locals: { comments: answer.comments } %>
 
     <% end %>
 
