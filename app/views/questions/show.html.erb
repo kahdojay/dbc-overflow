@@ -3,6 +3,8 @@
 
   <p class='question_body'><%= @question.body %></p>
 
+  <%= button_to "Delete", @question, method: "delete" %>
+
   <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
 
 
