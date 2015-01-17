@@ -15,12 +15,15 @@
     <%= button_to "Delete", @question, {method: "delete", confirm: "Are you sure you want to delete this question?"} %>
   <% end %>
 
-
-  <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
+  <% if logged_in? %>
+    <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
+    <%= render template: "comments/new.html.erb", locals: { commentable_id: @question.id, commentable_type: "Question"} %>
+  <% end %>
     <% @question.answers.each do |answer| %>
       <h3><%= answer.vote_count %>
         <%= render partial: "votes/vote_buttons", locals: {votable_type: "Answer", votable_id: answer.id} %>
         <%= answer.body %></h3><%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
+        <%= render template: "comments/new.html.erb", locals: { commentable_id: @answer.id, commentable_type: "Answer"} %>
     <% end %>
 
 
