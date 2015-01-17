@@ -7,4 +7,12 @@ class Comment < ActiveRecord::Base
   validates_presence_of :commentable_type
   validates_presence_of :user_id
 
+  def get_question_id
+    if self.commentable_type == "Question"
+      return self.commentable_id
+    else
+      return Answer.find(self.commentable_id).question_id
+    end
+  end
+
 end
