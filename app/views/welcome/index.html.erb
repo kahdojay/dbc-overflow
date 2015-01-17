@@ -1,13 +1,7 @@
 <div class='container'>
   <% @questions.each do |q| %>
     <% if logged_in? %>
-      <%= form_for :vote, method: "create", url: '/votes' do |f|  %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :votable_type, value: "Question" %>
-        <%= f.hidden_field :votable_id, value: q.id %>
-        <%= f.hidden_field :upvote, value: true %>
-        <%= f.submit 'Upvote' %>
-      <% end %>
+      <%= render partial: "votes/vote_buttons", locals: {question: q} %>
     <% end %>
   <a href="/questions/<%= q.id %>" id="<%= q.id %>">
     <h2> <%= q.title %> <%= q.updated_at %> <br>

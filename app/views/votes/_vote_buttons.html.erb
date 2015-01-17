@@ -1,0 +1,7 @@
+<%= form_for :vote, method: "create", url: '/votes' do |f|  %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :votable_type, value: "Question" %>
+  <%= f.hidden_field :votable_id, value: question.id %>
+  <%= f.hidden_field :upvote, value: true %>
+  <%= f.submit 'Upvote' %>
+<% end %>
