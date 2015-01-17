@@ -5,4 +5,8 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable
 
   validates_presence_of :body
+
+  def vote_count
+    self.votes.where(upvote: true).count - self.votes.where(upvote: false).count
+  end
 end
