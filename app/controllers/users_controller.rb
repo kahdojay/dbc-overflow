@@ -1,22 +1,28 @@
 class UsersController < ApplicationController
+	include AuthsHelper
 
 	def index
+		redirect_to :root unless current_admin
 		@users = User.all
 	end
 
 	def new
+		redirect_to :show if current_user
 		@user = User.new
 	end
 
 	def show
 		@user = User.find(params[:id])
+		redirect_to :root unless current_admin || current_user.id == @user.id
 	end
 
 	def edit
 		@user = User.find(params[:id])
+		redirect_to :root unless current_admin || current_user.id == @user.id
 	end
 
 	def create
+		redirect_to :show if current_user
 		@user = User.new(user_params)
 		if @user.save
 			session[:id] = @user.id
@@ -27,7 +33,8 @@ class UsersController < ApplicationController
 	end
 
 	def update
-			@user = User.find(params[:id])
+		@user = User.find(params[:id])
+		redirect_to :root unless current_admin || current_user.id == @user.id
 		if @user.update_attributes(user_params)
 			render :show
 		else
@@ -37,18 +44,16 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
- 		if @user.id = session[:id]
-			if @user.destroy
-				render :root
+		redirect_to :root unless current_admin || current_user.id == @user.id
+		if @user.destroy
+			if @user.id = session[:id]
+				redirect_to :logout
 			else
-				render :back
+				render :index
  			end
  		else
-			if @user.destroy
-				render :index
-			else
-				render :back
-			end
+			set_error("there was a problem deleting the account")
+			render :back
 		end
 	end 
 
