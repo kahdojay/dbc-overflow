@@ -9,8 +9,13 @@ class Question < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :user_id
 
+
   def vote_count
     self.votes.where(upvote: true).count - self.votes.where(upvote: false).count
+  end
+
+  def create_tags(string)
+    string.split(',').each{ |tag| self.tags.create(name: tag)}
   end
 
   def self.search(words)
