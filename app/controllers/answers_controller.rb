@@ -5,7 +5,11 @@ class AnswersController < ApplicationController
   end
 
   def new
-    render 'new'
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
+
+    render 'new', locals: {answer: @answer, question: @question}
+
   end
 
   def create
@@ -15,13 +19,15 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
   end
 
   def update
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     if @answer.update_attributes(answers_params)
-      redirect_to question_answer_path
+      redirect_to question_path(@answer.question_id)
     else
       render 'edit'
     end
@@ -30,7 +36,7 @@ class AnswersController < ApplicationController
   def destroy
     answer = Answer.find(params[:id])
     answer.destroy
-    redirect_to questions_path
+    redirect_to question_path(answer.question_id)
   end
 
   def answers_params
