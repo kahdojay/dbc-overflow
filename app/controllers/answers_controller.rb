@@ -32,6 +32,7 @@ class AnswersController < ApplicationController
     if @answer.update_attributes(answers_params)
       redirect_to question_path(@answer.question_id)
     else
+      flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
       render 'edit'
     end
   end
