@@ -18,16 +18,22 @@
 
   <% if logged_in? %>
     <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
-    <%= render template: "comments/new.html.erb", locals: { commentable_id: @question.id, commentable_type: "Question"} %>
+    <%= render template: "comments/new.html.erb", locals: { q_id: @question.id, commentable_id: @question.id, commentable_type: "Question"} %>
   <% end %>
+
     <% @question.answers.each do |answer| %>
-      <h3><%= answer.vote_count %>
-        <%= render partial: "votes/vote_buttons", locals: {votable_type: "Answer", votable_id: answer.id} %>
-        <%= answer.body %></h3><%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
-        <%= render template: "comments/new.html.erb", locals: { commentable_id: @answer.id, commentable_type: "Answer"} %>
+      <h3><%= answer.vote_count %><%= answer.body %></h3>
+        <% if logged_in? %>
+          <%= render partial: "votes/vote_buttons", locals: {votable_type: "Answer", votable_id: answer.id} %>
+          <%= render template: "comments/new.html.erb", locals: { q_id: @question.id, commentable_id: @answer.id, commentable_type: "Answer"} %>
+          <% if current_user.id == answer.user_id %>
+            <%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
+          <% end %>
+        <% end %>
+
     <% end %>
 
 
 </div>
-</div>
+
 
