@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :comments
 
   post 'votes/upvote', to: 'votes#upvote'
-  resources :votes
+  post 'votes/downvote', to: 'votes#downvote'
   resources :questions do
     resources :answers
   end
