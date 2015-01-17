@@ -4,19 +4,27 @@ users
 - have many questions
 - have many comments
 - have many answers
+- have many votes
 
 questions
 - belong to a user
 - have many answers
 - have many comments as: :commentable
+- have many votes
 
 answers
 - belong to a user
 - belong to a question
 - have many comments
+- have many votes
 
 comments
-- belong to commentable (questions, answers)
+- belong to commentable (question, answer)
+- belong to a user
+- t.string body
+
+votes
+- belong to votable (question, answer, comments?)
 - belong to a user
 
 SESSIONS
