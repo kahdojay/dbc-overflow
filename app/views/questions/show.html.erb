@@ -2,7 +2,7 @@
   <h2><%= @question.title %><br>
   points: <%= @question.vote_count %>
   <% if logged_in? %>
-    <%= render partial: "votes/vote_buttons", locals: {question: @question, votable_type: "Question", votable_id: @question.id} %></h2>
+    <%= render partial: "votes/vote_buttons", locals: {votable_type: "Question", votable_id: @question.id} %></h2>
   <% end %>
   <p class='question_body'><%= @question.body %></p>
 
@@ -14,7 +14,9 @@
 
   <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
     <% @question.answers.each do |answer| %>
-      <h3><%= answer.body %></h3><%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
+      <h3><%= answer.vote_count %>
+        <%= render partial: "votes/vote_buttons", locals: {votable_type: "Answer", votable_id: answer.id} %>
+        <%= answer.body %></h3><%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
     <% end %>
 
 
