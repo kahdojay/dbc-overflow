@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   include AuthsHelper
 
   def index
-    @questions = Question.all
+    redirect_to root_path
   end
 
   def new
@@ -14,7 +14,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    # params[:question][:user_id] = current_user.id
     @question = Question.new(question_params)
     if @question.save
       redirect_to question_path(@question)
@@ -22,6 +21,25 @@ class QuestionsController < ApplicationController
       #error_message?
       render :new
     end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to root_path
   end
 
   private
