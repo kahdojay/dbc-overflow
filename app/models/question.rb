@@ -8,6 +8,10 @@ class Question < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :user_id
 
+  def vote_count
+    self.votes.where(upvote: true).count - self.votes.where(upvote: false).count
+  end
+
   def self.search(words)
     matches = []
     words.split(' ').each do |word|
