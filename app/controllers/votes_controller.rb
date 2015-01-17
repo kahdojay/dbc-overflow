@@ -1,13 +1,28 @@
 class VotesController < ApplicationController
   def upvote
-    if Vote.find_by(vote_params)
-      redirect_to :back
-    elsif Vote.new(vote_params).save
-      redirect_to :back
+    existing_vote = find_any_vote
+    if existing_vote && existing_vote.upvote == false
+      existing_vote.destroy
+    elsif existing_vote && existing_vote.upvote == true
     else
-      set_error('Login to vote.')
-      redirect_to '/login'
+      Vote.create(vote_params)
     end
+    redirect_to :back
+  end
+
+  def downvote
+    existing_vote = find_any_vote
+    if existing_vote && existing_vote.upvote == true
+      existing_vote.destroy
+    elsif existing_vote && existing_vote.upvote == false
+    else
+      Vote.create(vote_params)
+    end
+    redirect_to :back
+  end
+
+  def find_any_vote
+    Vote.find_by(user_id: vote_params[:user_id], votable_type: vote_params[:votable_type], votable_id: vote_params[:votable_id])
   end
 
   def vote_params
