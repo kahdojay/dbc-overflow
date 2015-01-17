@@ -1,6 +1,6 @@
 <div class='container'>
   <h2><%= @question.title %><br>
-  points: <%= @question.votes.count %>
+  points: <%= @question.vote_count %>
   <% if logged_in? %>
     <%= render partial: "votes/vote_buttons", locals: {question: @question, votable_type: "Question", votable_id: @question.id} %></h2>
   <% end %>
