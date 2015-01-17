@@ -21,5 +21,13 @@ rand(5..20).times {
   user.answers.create(question_id: rand(1..q_num), body: Faker::Lorem.paragraph)
 }
 
+# seed random number of upvotes for all answers
+Answer.all.each do |answer|
+  rand(5..20).times { answer.votes.create(user_id: rand(User.count), upvote: true) }
+end
 
+# seed random number of upvotes for all questions
+Question.all.each do |question|
+  rand(5..20).times { question.votes.create(user_id: rand(User.count), upvote: true) }
+end
 

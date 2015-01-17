@@ -1,19 +1,27 @@
 <div class='container'>
-  <h2><%= @question.title %></h2>
-
+  <h2><%= @question.title %><br>
+  points: <%= @question.vote_count %>
+  <% if logged_in? %>
+    <%= render partial: "votes/vote_buttons", locals: {votable_type: "Question", votable_id: @question.id} %></h2>
+  <% end %>
   <p class='question_body'><%= @question.body %></p>
 
-  <% if @question.user_id == current_user.id %>
+  <% if logged_in? && @question.user_id == current_user.id %>
     <%= button_to "Edit", {action: "edit"}, method: "get" %>
     <%= button_to "Delete", @question, {method: "delete", confirm: "Are you sure you want to delete this question?"} %>
   <% end %>
 
+
   <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
-
-
     <% @question.answers.each do |answer| %>
-      <h3><%= answer.body %></h3><%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
+      <h3><%= answer.vote_count %>
+        <%= render partial: "votes/vote_buttons", locals: {votable_type: "Answer", votable_id: answer.id} %>
+        <%= answer.body %></h3><%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
     <% end %>
 
+
+</div>
+
+=======
 </div>
 
