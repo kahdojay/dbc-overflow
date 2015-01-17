@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
+    @question.create_tags(params[:question][:tags]) if params[:question][:tags]
       redirect_to question_path(@question)
     else
       #error_message?
