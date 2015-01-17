@@ -3,7 +3,7 @@
   <a href="/questions/<%= q.id %>" id="<%= q.id %>">
     <h2>
       <%= q.title %> <%= q.updated_at %></a> <br>
-      points: <%= q.votes.count %>
+      points: <%= q.vote_count %>
       <% if logged_in? %>
         <%= render partial: "votes/vote_buttons", locals: {question: q, votable_type: "Question", votable_id: q.id} %>
       <% end %>
