@@ -1,4 +1,4 @@
-<%= form_for :question, url: {action: "update"} do |f| %>
+<%= form_for :question, url: {action: 'update'}, method: "patch" do |f| %>
 
 <%= label :title, "Title: " %>
 <%= f.text_field :title %><br><br>
