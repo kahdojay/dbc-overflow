@@ -5,7 +5,7 @@ describe CommentsController do
     it 'populates an array of all comment to a question' do
       comment1 = create(:q_comment)
       comment2 = create(:q_comment)
-      get :index, commentable_id: 1, commentable_type: "Question"
+      get :index, :commentable_id => 1, :commentable_type => "Question", format: :json
       expect(assigns(:q_comment)).to match_array([comment1, comment2])
     end
     it 'populates an array of all comment to an answer' do
