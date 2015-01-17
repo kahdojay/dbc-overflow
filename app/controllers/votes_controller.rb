@@ -1,7 +1,8 @@
 class VotesController < ApplicationController
   def upvote
-    vote = Vote.new(vote_params)
-    if vote.save
+    if Vote.find_by(vote_params)
+      redirect_to :back
+    elsif Vote.new(vote_params).save
       redirect_to :back
     else
       set_error('Login to vote.')
