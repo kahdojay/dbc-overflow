@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post 'votes/downvote', to: 'votes#downvote'
   resources :questions do
     resources :answers
+
   end
 end
