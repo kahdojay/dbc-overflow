@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   def create
     vote = Vote.new(vote_params)
     if vote.save
-      redirect_to root_path
+      redirect_to :back
     else
       set_error('Login to vote.')
       redirect_to '/login'
