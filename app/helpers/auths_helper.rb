@@ -8,4 +8,8 @@ module AuthsHelper
   def logged_in?
     !current_user.nil?
   end
+
+  def current_admin
+  	User.id(session[:id]).is_admin
+  end
 end
