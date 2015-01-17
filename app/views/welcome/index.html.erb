@@ -1,7 +1,7 @@
 <div class='container'>
   <% @questions.each do |q| %>
     <% if logged_in? %>
-      <%= render partial: "votes/vote_buttons", locals: {question: q} %>
+      <%= render partial: "votes/vote_buttons", locals: {question: q, votable_type: "Question", votable_id: q.id} %>
     <% end %>
   <a href="/questions/<%= q.id %>" id="<%= q.id %>">
     <h2> <%= q.title %> <%= q.updated_at %> <br>
