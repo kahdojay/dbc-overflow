@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   include AuthsHelper
 
   def index
-    @questions = Question.all
+    redirect_to root_path
   end
 
   def new
@@ -14,7 +14,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    # params[:question][:user_id] = current_user.id
     @question = Question.new(question_params)
     if @question.save
       redirect_to question_path(@question)
