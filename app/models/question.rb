@@ -18,6 +18,10 @@ class Question < ActiveRecord::Base
     string.split(',').each{ |tag| self.tags.create(name: tag)}
   end
 
+  def display_tags
+    self.tags.map{ |tag| tag.name}.join(',')
+  end
+
   def self.search(words)
     matches = []
     words.split(' ').each do |word|
