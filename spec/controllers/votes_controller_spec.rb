@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe VotesController do
-  describe '#create' do
+  describe '#upvote' do
     before :each do
       @user = FactoryGirl.create(:user)
       @question = FactoryGirl.create(:question)
