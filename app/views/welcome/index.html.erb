@@ -1,10 +1,14 @@
 <div class='container'>
   <% @questions.each do |q| %>
   <a href="/questions/<%= q.id %>" id="<%= q.id %>">
-    <h2> <%= q.title %> <%= q.updated_at %> </h2>
+    <h2>
+      <%= q.title %> <%= q.updated_at %></a> <br>
+      points: <%= q.vote_count %>
+      <% if logged_in? %>
+        <%= render partial: "votes/vote_buttons", locals: {question: q, votable_type: "Question", votable_id: q.id} %>
+      <% end %>
+    </h2>
     <p class='question_body'> <%= q.body %> </p>
-
-  </a>
 
   <% end %>
 

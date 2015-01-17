@@ -2,21 +2,6 @@ require "rails_helper"
 
 describe QuestionsController do
 
-  describe 'GET #index' do
-    it "populates an array of all questions" do
-      question1 = create(:question)
-      question2 = create(:question)
-      get :index
-      expect(assigns(:questions)).to match_array([question1, question2])
-    end
-
-    it "renders the #index template" do
-      get :index
-      expect(response).to render_template :index
-    end
-
-  end
-
     describe 'GET #show' do
       it "assigns the requested question to @question" do
       question = create(:question)
@@ -134,7 +119,7 @@ describe QuestionsController do
 
     it "renders the :index template" do
       delete :destroy, id: @question.id
-      expect(response).to redirect_to questions_path
+      expect(response).to redirect_to root_path
     end
   end
 

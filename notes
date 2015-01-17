@@ -36,3 +36,18 @@ SESSIONS
 #define logout route
   session is destroyed upon logout
   user is redirected to root upon logout
+
+VOTES
+create upvote button
+votes#upvote route
+  clicking upvote creates a vote record with the current user's id, question id, and answer id
+implement downvoting (two-way voting with neutral state)
+  votes#downvote checks whether a vote for the current user exists
+    if it does and it's an upvote, delete the vote record
+    if it does and it's a downvote, do nothing
+    if it doesn't, create a downvote
+  votes#upvote checks whether a vote exists
+    if it does and it's an upvote, do nothing
+    if it does and it's a downvote, delete the current record
+    if it doesn't, create an upvote
+make possible to set vote back to neutral (neither up nor down)
