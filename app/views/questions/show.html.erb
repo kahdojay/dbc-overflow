@@ -9,7 +9,7 @@
 
 
     <% @question.answers.each do |answer| %>
-      <%= answer.body %><%= link_to 'Edit', edit_question_answer_path(@question, answer) %> <br>
+      <%= answer.body %><%= button_to 'Edit',edit_question_answer_path(@question, answer), :method => :get %> <br>
     <% end %>
 
 </div>
