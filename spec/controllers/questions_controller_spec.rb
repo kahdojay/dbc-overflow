@@ -38,7 +38,7 @@ describe QuestionsController do
     end
   end
 
-  xdescribe 'GET #edit' do
+  describe 'GET #edit' do
     it "assigns the equested question to @question" do
       question = create(:question)
       get :edit, id: question
@@ -79,7 +79,7 @@ describe QuestionsController do
     end
   end
 
-  xdescribe 'PATCH #update' do
+  describe 'PATCH #update' do
     before :each do
       @question = create(:question,
       body: "this is the body",
@@ -93,7 +93,9 @@ describe QuestionsController do
         expect(assigns(:question)).to eq(@question)
       end
       it "changes @questions attributes" do
-        patch :update, id: @question, body: "different!", title: "Django"
+        patch :update, id: @question, question: attributes_for(:question,
+          body: "different!",
+          title: "Django")
         @question.reload
         expect(@question.body).to eq("different!")
         expect(@question.title).to eq("Django")
@@ -119,9 +121,9 @@ describe QuestionsController do
 
   end
 
-  xdescribe 'DELETE #destroy' do
+  describe 'DELETE #destroy' do
     before :each do
-      @quesiton = create(:question)
+      @question = create(:question)
     end
 
     it "deletes the question from the database" do
@@ -131,7 +133,7 @@ describe QuestionsController do
     end
 
     it "renders the :index template" do
-      delete :destroy, id: @question
+      delete :destroy, id: @question.id
       expect(response).to redirect_to questions_path
     end
   end
