@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :comments
+
+  post 'votes/upvote', to: 'votes#upvote'
   resources :votes
   resources :questions do
     resources :answers
