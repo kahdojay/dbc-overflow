@@ -1,10 +1,6 @@
 class QuestionsController < ApplicationController
   include AuthsHelper
 
-  before_action do
-    flash[:alert] = nil
-  end
-
   def index
     redirect_to root_path
   end
