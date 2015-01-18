@@ -10,7 +10,7 @@
 
     <% @question.answers.each do |answer| %>
       <% @answer = answer %>
-      <%= render partial: "answers/show.html.erb", locals: {answer: @answer} %>
+      <%= render partial: "answers/show.html.erb", locals: {answer: answer} %>
       <%= render template: "comments/show.html.erb", locals: { comments: @answer.comments } %>
       <% if logged_in? %>
       <br/>
