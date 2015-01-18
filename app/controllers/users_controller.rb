@@ -57,12 +57,12 @@ class UsersController < ApplicationController
 			set_error("there was a problem deleting the account")
 			render :back
 		end
-	end 
+	end
 
 	private
 
 		def user_params
-			params.require(:user).permit(:name, :password_digest, :is_admin)
+			params.require(:user).permit(:name, :password, :password_confirmation, :password_digest, :is_admin)
 		end
 
 		def admin_param_fix
