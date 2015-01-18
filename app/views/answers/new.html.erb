@@ -1,5 +1,6 @@
 <p><h2>Add another answer!</h2></p>
   <%= form_for [@question, @answer_new] do |f| %>
     <p><%= f.text_field :body, placeholder: 'add an answer' %></p>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <p><%= f.submit "Submit" %></p>
   <% end %>

@@ -6,8 +6,6 @@ class AnswersController < ApplicationController
   end
 
   def create
-    p "*" *20
-    p params[:answer][:user_id] = current_user.id
     question = Question.find(params[:question_id])
     answer = question.answers.create(answers_params)
     redirect_to question_path(question)
