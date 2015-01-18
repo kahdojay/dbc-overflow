@@ -102,6 +102,7 @@ h4{
 
 .question_content {
   margin-left: 95px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #ccc;
   border-left: 1px solid #ccc;
 }
@@ -114,7 +115,8 @@ h4{
   width: 100%;
 }
 
-.question_main {
+.question_tag {
+  margin: 0 0 5px 25px;
 }
 
 .answer_show_partial {
@@ -196,8 +198,20 @@ h4{
   font-size: 1.1em;
 }
 
-.new_answer_form{
+.new_form{
   margin-left: 85px;
+}
+
+.answer_buttons a, .question_buttons a{
+  font-weight: bold;
+  font-size: 0.8em;
+  text-align: center;
+  border: 1.5px solid #ccc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  font-family: 'Abel', sans-serif;
+  margin-bottom: 10px;
+  padding: 2px;
 }
 
 

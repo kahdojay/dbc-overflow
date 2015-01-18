@@ -1,13 +1,14 @@
-<%= form_for :question, url: {action: 'update'}, method: "patch" do |f| %>
+<div class='new_form'>
+  <%= form_for :question, url: {action: 'update'}, method: "patch" do |f| %>
 
-<%= label :title, "Title: " %>
-<%= f.text_field :title %><br><br>
-<%= f.hidden_field :user_id, value: current_user.id %><br><br>
+  <h2><%= label :title, "Title: " %></h2>
+  <%= f.text_field :title %>
+  <%= f.hidden_field :user_id, value: current_user.id %><br><br>
+  <%= f.text_area :body, cols: '92', rows: '10' %><br><br>
+
+  <%= f.submit "Edit Question" %>
 
 
-<%= f.text_area :body %><br><br>
+  <% end %>
 
-<%= f.submit "Edit Question" %>
-
-
-<% end %>
+</div>
