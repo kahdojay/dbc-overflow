@@ -4,7 +4,11 @@ class WelcomeController < ApplicationController
   end
 
   def show
+  end
 
+  def unanswered_questions
+    @questions = Question.all.select{|q| q.answers.count == 0}
+    render 'index'
   end
 
   def search
