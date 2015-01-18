@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#logout'
-  get '/search', to: 'welcome#search'
+  get '/search', to: 'questions#search'
   get '/signup', to: 'users#new'
 
   post 'votes/upvote', to: 'votes#upvote'
