@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   include AuthsHelper
 
   def index
-    redirect_to root_path
+    @questions = Question.all.order('created_at DESC')
   end
 
   def new
