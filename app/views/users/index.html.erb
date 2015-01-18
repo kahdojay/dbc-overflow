@@ -1,1 +1,7 @@
-<div>This is the index page for users</div>
+<h2>Users</h2>
+<% @users.each do |user| %>
+	<div class = "user_info">
+		<span><%= user.name %></span>
+		<span><%= user.is_admin.to_s %></span>
+	</div>
+<% end %>
