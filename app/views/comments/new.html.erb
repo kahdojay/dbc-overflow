@@ -1,3 +1,4 @@
+<%= flash.alert %>
 <%= form_for :comment, url: '/comments', method: :post do |f| %>
   <%= f.text_field :body, placeholder: 'add a comment' %><br>
   <%= f.hidden_field :user_id, value: current_user.id %>

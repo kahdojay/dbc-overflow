@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       @question = Question.find(@comment.get_question_id)
       redirect_to question_path(@question)
     else
-      #error_message?
+      flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
       render :new
     end
   end
@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
       @question = Question.find(@comment.get_question_id)
       redirect_to question_path(@question)
     else
+       flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
       render :edit
     end
   end

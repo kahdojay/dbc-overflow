@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
     @question.create_tags(params[:question][:tags]) if params[:question][:tags]
       redirect_to question_path(@question)
     else
-      #error_message?
+      flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
       render :new
     end
   end
@@ -35,6 +35,7 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to @question
     else
+      flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
       render :edit
     end
   end
