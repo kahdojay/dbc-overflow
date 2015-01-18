@@ -1,0 +1,24 @@
+<div class = "answer_show_partial" >
+	<div class = "answer_votes" >
+		<% if logged_in? %>
+			<% @answer = answer %>
+      <%= render partial: "votes/vote_buttons", locals: {answer: @answer, votable_type: "Answer", votable_id: @answer.id} %>
+    <% else %>
+      points: <%= @answer.vote_count %>
+    <% end %>
+	</div>
+	<div class = "answer_buttons" >
+	  <% if logged_in? && @qansweruser_id == current_user.id || current_user.is_admin %>
+	    <%= link_to_if(current_user, "Edit", { controller: "answers", action: "edit", question_id: @question.id }) %>
+	    <%= link_to_if(current_user, "Delete", { controller: "answers", action: "destroy", question_id: @question.id, id: @answer.id }) %>
+	  <% end %>
+	</div>
+		<ul class = "answer_content" >
+			<li class = "answer_title" >
+				<%= @answer.updated_at %>
+			</li>
+			<li class = "answer_body" >
+				<%= @answer.body %>
+			</li>
+		</ul>
+</div>
