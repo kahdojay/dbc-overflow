@@ -1,18 +1,13 @@
 <div class='container'>
 	<ul class = "user_info" >
-		<li class = "user_info_item" >
-			Name: <%= @user.name %><br>
-			Questions: <%= @user.questions.count %><br>
-			Answers: <%= @user.answers.count %>
-		</li>
-		Questions
+		<h2>You asked <%= @user.questions.count %> Questions</h2>
 		<% @user.questions.each do |question| %>
 			<li>
 				<%= link_to question.title, question_path(question) %>
 			</li>
 		<% end %><br><br>
 
-		Answers
+		<h2>You answered <%= @user.answers.count %> Answers</h2>
 		<% @user.answers.each do |answer| %>
 			<li>
 				<%= link_to answer.question.title, question_path(answer.question) %>

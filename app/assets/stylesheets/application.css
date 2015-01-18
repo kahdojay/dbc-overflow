@@ -71,6 +71,12 @@ h4{
   margin-left: 25px;
 }
 
+span{
+  font-family: 'Abel', sans-serif;
+  font-size: 0.7em;
+  color: #1C539C;
+}
+
 .question_body{
   font-size: 1.3em;
   font-family: 'Abel', sans-serif;
@@ -264,7 +270,7 @@ select{
 
 
 a {
-  color: #632728;
+  color: #1C539C;
   text-decoration: none;
 }
 
@@ -288,7 +294,8 @@ ul li h3 {
 }
 ul a {
   font-size: 1.5em;
-  color: #ccc;
+  color: #20A160;
 }
 ul a:hover {
+  color: #20C773;
 }

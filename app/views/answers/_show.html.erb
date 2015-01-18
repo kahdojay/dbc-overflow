@@ -17,13 +17,13 @@
   </div>
 
   <div class = "answer_content" >
-    <%= link_to answer.user.name, user_path(answer.user) %>
-    <p class = "answer_date" >
-      <%= answer.updated_at %>
-    </p>
     <p class = "answer_body" >
       <%= answer.body %>
     </p>
+    <p class = "answer_date" >
+      answered at <%= answer.updated_at %> by  <span style='font-size: 1.5em;'><%= link_to answer.user.name, user_path(answer.user) %></span>
+    </p>
+
   </div>
 
 </div>
