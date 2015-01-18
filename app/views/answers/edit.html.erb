@@ -1,10 +1,12 @@
-<br>
-<%= form_for :answer, method: "put", url: {action: "update"} do |f| %>
-  Body: <%= f.text_field :body %><br>
-  <%= f.submit "Submit" %>
-<% end %>
-<br>
+<div class='new_form'>
+  <h2>Edit Answer</h2>
+  <%= form_for :answer, method: "put", url: {action: "update"} do |f| %>
+    <%= f.text_area :body, cols: '92', rows: '10' %><br>
+    <%= f.submit "Submit" %>
+  <% end %>
+  <br>
 
-<%= form_for :answer, method:"delete", url: {action: "destroy"} do |f| %>
-  <%= f.submit "Delete" %>
-<% end %>
+  <%= form_for :answer, method:"delete", url: {action: "destroy"} do |f| %>
+    <%= f.submit "Delete" %>
+  <% end %>
+</div>

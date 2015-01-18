@@ -28,6 +28,11 @@
   margin: 0 auto;
 }
 
+.filter_button{
+  display: inline-block;
+  font-size: 1.3em;
+}
+
 header{
   background-color: white;
   margin: 10px;
@@ -75,6 +80,15 @@ span{
   font-family: 'Abel', sans-serif;
   font-size: 0.7em;
   color: #1C539C;
+
+}
+
+#error{
+  font-family: 'Shadows Into Light', cursive;
+  color: #C40E38;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin-left: 95px;
 }
 
 .question_body{
