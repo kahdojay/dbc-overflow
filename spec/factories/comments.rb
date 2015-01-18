@@ -13,6 +13,7 @@ FactoryGirl.define do
     end
     factory :invalid_comment do
       body nil
+      commentable_type 'Answer'
     end
   end
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
   resources :users
-  resources :comments
+  resources :comments, only: [:create, :edit, :destroy, :update]
 
   post 'votes/upvote', to: 'votes#upvote'
   post 'votes/downvote', to: 'votes#downvote'

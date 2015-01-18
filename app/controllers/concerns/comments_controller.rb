@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   include AuthsHelper
 
   def create
-    @question = Question.find(q_params[:question_id])
     @comment = Comment.new(comment_params)
     if @comment.save
+      @question = Question.find(@comment.get_question_id)
       redirect_to question_path(@question)
     else
       #error_message?
@@ -18,8 +18,8 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @question = Question.find(@comment.get_question_id)
     if @comment.update(comment_params)
+      @question = Question.find(@comment.get_question_id)
       redirect_to question_path(@question)
     else
       render :edit
@@ -32,7 +32,6 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
-
   private
     def comment_params
       params.require(:comment).permit(:commentable_id, :commentable_type, :body, :user_id)
@@ -40,6 +39,4 @@ class CommentsController < ApplicationController
     def q_params
       params.require(:comment).permit(:question_id)
     end
-
-
 end
