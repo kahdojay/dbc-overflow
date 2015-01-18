@@ -18,7 +18,7 @@
         <nav>
           <ul>
             <% if logged_in? %>
-              <h2>Hello, <%= current_user.name %>! </h2>
+              <h2>Hello, <%= link_to current_user.name, user_path(current_user) %>! </h2>
               <li><%= button_to 'New Question', new_question_path, method: :get %>
               </li>
               <li><%= button_to 'Logout', logout_path, method: :get %></li>
