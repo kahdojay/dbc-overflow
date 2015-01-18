@@ -1,4 +1,6 @@
 <div class='container'>
+   <%= button_to "Unanswered Questions", {action: "unanswered_questions"}, method: "get" %>
+
   <% @questions.each do |q| %>
   <a href="/questions/<%= q.id %>" id="<%= q.id %>">
     <h2>
