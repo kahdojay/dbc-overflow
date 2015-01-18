@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	end
 
 	def new
-		redirect_to :show if current_user
+		redirect_to action: :show, id: current_user.id if current_user
 		@user = User.new
 	end
 
@@ -34,10 +34,12 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		redirect_to :root unless current_admin || current_user.id == @user.id
-		if @user.update_attributes(user_params)
-			render :show
+		admin_param_fix
+		redirect_to :root unless current_user.id == @user.id
+		if @user.update(user_params)
+			redirect_to @user
 		else
+			set_error("there was a problem editing the account")
 			render :edit
 		end
 	end
@@ -60,7 +62,15 @@ class UsersController < ApplicationController
 	private
 
 		def user_params
-			params.require(:user).permit(:name, :password, :password_confirmation)
+			params.require(:user).permit(:name, :password_digest, :is_admin)
+		end
+
+		def admin_param_fix
+			params[:user][:is_admin] = param_to_bool(params[:user][:is_admin])
+		end
+
+		def param_to_bool(value)
+			ActiveRecord::Type::Boolean.new.type_cast_from_user(value)
 		end
 
 end
