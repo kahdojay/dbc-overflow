@@ -5,18 +5,10 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
   end
 
-  def new
-    @answer = Answer.find(params[:id])
-    @question = @answer.question
-
-    render 'new', locals: {answer: @answer, question: @question}
-
-  end
-
   def create
     question = Question.find(params[:question_id])
     answer = question.answers.create(answers_params)
-    redirect_to question_path(question, "answers" => answer.id)
+    redirect_to question_path(question)
   end
 
   def edit
