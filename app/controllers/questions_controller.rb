@@ -10,6 +10,11 @@ class QuestionsController < ApplicationController
     render 'index'
   end
 
+  def unanswered_questions
+    @questions = Question.all.select{|q| q.answers.count == 0}
+    render 'index'
+  end
+
   def new
   end
 
