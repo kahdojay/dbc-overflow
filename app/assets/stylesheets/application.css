@@ -23,7 +23,7 @@
   position: absolute;
 }
 .container {
-  width: 95%;
+  width: 90%;
   height: 100%;
   margin: 0 auto;
 }
@@ -55,7 +55,7 @@ h2{
   font-family: 'Oswald', sans-serif;
   margin: 20px;
   color: #1c6551;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 h3{
@@ -163,6 +163,11 @@ h4{
 .comment_show {
   clear: both;
   margin-left: 95px;
+}
+
+ul li {
+  clear: both;
+  margin: 0;
 }
 
 .comment_body {
