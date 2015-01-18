@@ -14,6 +14,9 @@
 
   <div class = "answer_content" >
     <ul>
+      <li>
+        <%= link_to answer.user.name, user_path(answer.user) %>
+      </li>
       <li class = "answer_date" >
         <%= answer.updated_at %>
       </li>
