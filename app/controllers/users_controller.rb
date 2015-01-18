@@ -48,11 +48,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		redirect_to :root unless current_admin || current_user.id == @user.id
 		if @user.destroy
-			if @user.id = session[:id]
-				redirect_to :logout
-			else
-				render :index
- 			end
+			redirect_to :logout
  		else
 			set_error("there was a problem deleting the account")
 			render :back
