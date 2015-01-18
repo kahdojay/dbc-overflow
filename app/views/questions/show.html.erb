@@ -1,30 +1,31 @@
 <div class='container'>
-    <p class = "type_titles" >Question :</p>
+    <p class = "type_titles" ></p>
     <div class = "question_main" >
       <%= render partial: "questions/show.html.erb", locals: {question: @question} %>
+    <div class='comment_div'>
       <%= render template: "comments/show.html.erb", locals: { comments: @question.comments } %>
       <% if logged_in? %>
         <%= render partial: "comments/new", locals: { q_id: @question.id, commentable_id: @question.id, commentable_type: "Question"} %></div>
-    <% end %>
-    <p class = "type_titles" >Answers :</p>
+      <% end %>
+    </div>
+
+    <h2><%= @question.answers.count %> Answers</h2>
 
     <% @question.answers.each do |answer| %>
       <% @answer = answer %>
       <%= render partial: "answers/show.html.erb", locals: {answer: answer} %>
-      <%= render template: "comments/show.html.erb", locals: { comments: @answer.comments } %>
-      <% if logged_in? %>
-      <br/>
-      <br/>
-        <p><%= render partial: "comments/new", locals: { answer_id: @answer.id, commentable_id: @answer.id, commentable_type: "Answer"} %></p>
-      <% end %>
 
+      <div class='comment_div'>
+        <%= render template: "comments/show.html.erb", locals: { comments: @answer.comments } %>
+        <% if logged_in? %>
+          <p><%= render partial: "comments/new", locals: { answer_id: @answer.id, commentable_id: @answer.id, commentable_type: "Answer"} %></p>
+        <% end %>
+      </div>
 
     <% end %>
-      <br/>
+      <% if logged_in? %>
+        <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @new_answer} %>
+      <% end %>
 
-      <br/>
-        <% if logged_in? %>
-          <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @new_answer} %>
-        <% end %>
 
 </div>

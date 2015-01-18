@@ -23,7 +23,7 @@
   position: absolute;
 }
 .container {
-  width: 95%;
+  width: 85%;
   height: 100%;
   margin: 0 auto;
 }
@@ -31,7 +31,7 @@
 header{
   background-color: white;
   margin: 10px;
-  height: 110px;
+  height: 130px;
   border-bottom: 2px solid #ccc;;
 }
 nav{
@@ -43,29 +43,32 @@ nav ul li{
 }
 
 h1{
-  font-family: 'Droid Sans', sans-serif;
-  padding-left: 20px;
+  font-family: 'Bree Serif', serif;
+  color: #0A3620;
   position: relative;
   float: left;
-  font-size: 3em;
+  font-size: 4em;
   margin: 20px;
 }
 
 h2{
   font-family: 'Oswald', sans-serif;
-  margin: 20px;
+  margin: 10px;
   color: #1c6551;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 h3{
   font-family: 'Abel', sans-serif;
+  margin: 10px;
+  color: #1c6551;
   font-size: 1em;
 }
 
 h4{
   font-family: 'Abel', sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
+  margin-left: 25px;
 }
 
 .question_body{
@@ -75,19 +78,6 @@ h4{
   padding: 5px;
 }
 
-.answer_body{
-  font-size: 1.3em;
-  font-family: 'Abel', sans-serif;
-  margin: 20px;
-  padding: 5px;
-}
-
-.new_answer{
-  font-size: 1.3em;
-  font-family: 'Abel', sans-serif;
-  margin: 20px;
-  padding: 5px;
-}
 
 .type_titles {
   font-size: 24px;
@@ -112,6 +102,8 @@ h4{
 
 .question_content {
   margin-left: 95px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 
 .question_title {
@@ -135,12 +127,35 @@ h4{
   height: 100%;
 }
 
+.answer_date{
+  font-size: 0.8em;
+  font-family: 'Abel', sans-serif;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.answer_body{
+  font-size: 1.3em;
+  font-family: 'Abel', sans-serif;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.new_answer{
+  font-size: 1.3em;
+  font-family: 'Abel', sans-serif;
+  margin: 20px;
+  padding: 5px;
+}
+
 .answer_buttons {
   float: right;
 }
 
 .answer_content {
   margin-left: 95px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 
 .answer_body {
@@ -151,29 +166,38 @@ h4{
   clear: both;
 }
 
-.answer_body {
-  width: 100%;
+
+.comment_div{
+  margin-left: 105px;
+  margin-bottom: 95px;
 }
 
-.comment_show {
-  clear: both;
-  margin-left: 95px;
+.each_comment{
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1.4px solid #ccc;
+  margin: 5px;
 }
 
 .comment_body {
   float: left;
+  margin: 3px;
+  display: inline-block;
 }
 
 .comment_buttons {
   float: right;
+  font-size: 0.7em;
+  margin: 0 auto;
+
 }
 
 .comment_label {
-  margin-left: 95px;
+  font-size: 1.1em;
 }
 
-.add_comment {
-  margin-left: 95px;
+.new_answer_form{
+  margin-left: 85px;
 }
 
 
@@ -182,7 +206,7 @@ h4{
   font-weight: bold;
   font-size: 1em;
   text-align: center;
-  border: 1.5px solid #B0C4DE;
+  border: 1.5px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   font-family: 'Abel', sans-serif;
@@ -193,13 +217,15 @@ h4{
 
 
 input, textarea {
+  background: transparent;
   margin-bottom: 10px;
   line-height: 1em;
   font-size: 1em;
   font-family: 'Abel', sans-serif;
-  border: 1px solid #B0C4DE;
+  border: 1px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
+  margin: 3px;
 }
 
 button{
@@ -207,7 +233,7 @@ button{
   font-weight: bold;
   font-size: 1em;
   text-align: center;
-  border: 1.5px solid #B0C4DE;
+  border: 1.5px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   font-family: 'Abel', sans-serif;
@@ -218,7 +244,7 @@ select{
   font-family: 'Abel', sans-serif;
   font-weight: bold;
   font-size: 1em;
-  border: 1px solid #B0C4DE;
+  border: 1px solid #ccc;
   background: transparent;
 }
 

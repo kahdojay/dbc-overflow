@@ -15,7 +15,8 @@
 
   <ul class = "question_content" >
     <li class = "question_title" >
-      <a href="/questions/<%= question.id %>" id="<%= question.id %>"><h2><%= question.title %></h2></a><%= question.updated_at %>
+      <a href="/questions/<%= question.id %>" id="<%= question.id %>"><h2><%= question.title %></h2></a>
+    <li><h4><%= question.updated_at %></h4></li>
     </li>
     <li class = "question_body" >
       <%= question.body %>
