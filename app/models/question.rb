@@ -19,7 +19,7 @@ class Question < ActiveRecord::Base
   end
 
   def display_tags
-    self.tags.map{ |tag| tag.name}.join(',')
+    self.tags.map{ |tag| tag.name.strip}.uniq.join(", ")
   end
 
   def self.search(words)
