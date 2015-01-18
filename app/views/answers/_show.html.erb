@@ -1,9 +1,7 @@
 <div class = "answer_show_partial" >
   <div class = "answer_votes" >
     <% if logged_in? %>
-      <%= render partial: "votes/vote_buttons", locals: {answer: answer, votable_type: "Answer", votable_id: answer.id} %>
-    <% else %>
-      points: <%= answer.vote_count %>
+      <%= render partial: "votes/vote_buttons", locals: {answer: answer, votable_type: "Answer", votable_id: answer.id, vote_count: answer.vote_count } %>
     <% end %>
   </div>
   <div class = "answer_buttons" >

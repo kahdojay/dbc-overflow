@@ -1,9 +1,7 @@
 <div class = "question_show_partial" >
   <div class = "question_votes" >
     <% if logged_in? %>
-       <%= render partial: "votes/vote_buttons", locals: {question: question, votable_type: "Question", votable_id: question.id} %>
-     <% else %>
-       points: <%= question.vote_count %>
+       <%= render partial: "votes/vote_buttons", locals: {question: question, votable_type: "Question", votable_id: question.id, vote_count: question.vote_count } %>
      <% end %>
   </div>
   <div class = "question_buttons" >
@@ -14,6 +12,7 @@
       <% end %>
     <% end %>
   </div>
+
   <ul class = "question_content" >
     <li class = "question_title" >
       <a href="/questions/<%= question.id %>" id="<%= question.id %>"><h2><%= question.title %></h2></a><%= question.updated_at %>
