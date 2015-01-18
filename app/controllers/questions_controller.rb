@@ -5,6 +5,11 @@ class QuestionsController < ApplicationController
     @questions = Question.all.order('created_at DESC')
   end
 
+  def search
+    @questions = Question.search(params[:q])
+    render 'index'
+  end
+
   def new
   end
 
