@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/search', to: 'questions#search'
   get '/signup', to: 'users#new'
 
+  get '/unanswered', to: 'questions#unanswered', as: 'unanswered'
+
   post 'votes/upvote', to: 'votes#upvote'
   post 'votes/downvote', to: 'votes#downvote'
 
