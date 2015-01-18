@@ -78,6 +78,18 @@ h4{
   padding: 5px;
 }
 
+.comment_show {
+  clear: both;
+}
+
+.comment_body {
+  float: left;
+}
+
+.comment_buttons {
+  float: right;
+}
+
 
 .button_to input{
   background: transparent;
