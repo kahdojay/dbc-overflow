@@ -20,12 +20,12 @@ class AnswersController < ApplicationController
   def update
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
-    redirect_to root_path unless @answer.user_id == current_user.id
-    if @answer.update_attributes(answers_params)
-      redirect_to question_path(@answer.question_id)
+    #redirect_to :root unless current_user.id == @answer.user_id
+    if @answer.update(answers_params)
+      redirect_to @question
     else
       flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
-      render 'edit'
+      render :edit
     end
   end
 
