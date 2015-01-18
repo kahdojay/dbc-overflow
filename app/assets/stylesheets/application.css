@@ -60,12 +60,15 @@ h2{
 
 h3{
   font-family: 'Abel', sans-serif;
+  margin: 20px;
+  color: #1c6551;
   font-size: 1em;
 }
 
 h4{
   font-family: 'Abel', sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
+  margin-left: 25px;
 }
 
 .question_body{
@@ -89,7 +92,6 @@ h4{
   padding: 5px;
 }
 
-<<<<<<< HEAD
 .type_titles {
   font-size: 24px;
 }
@@ -113,6 +115,8 @@ h4{
 
 .question_content {
   margin-left: 95px;
+  border-bottom: 1px solid #B0C4DE;
+  border-left: 1px solid #B0C4DE;
 }
 
 .question_title {
