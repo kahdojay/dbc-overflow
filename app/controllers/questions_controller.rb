@@ -47,7 +47,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:id])
-    redirect_to root_path unless @question.user_id == current_user.id
+    redirect_to root_path unless @question.user_id == current_user.id || current_user.is_admin
     @question.destroy
     redirect_to root_path
   end
