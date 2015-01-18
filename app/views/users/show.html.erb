@@ -1,14 +1,29 @@
-<ul class = "user_info" >
-	<li class = "user_info_item" >
-		<%= @user.name %>
-	</li>
-	<li class = "user_info_item" >
-		<%= @user.is_admin.to_s %>
-	</li>
-	<li class = "user_buttons" >
-    <%= button_to "Delete", @user, {method: "delete", confirm: "Are you sure you want to delete this user?"} %>
-	</li>
-	<li class = "user_buttons" >
-    <%= link_to "Edit", {action: "edit"}, method: "get" %>
-	</li>
-</ul>
+<div class='container'>
+	<ul class = "user_info" >
+		<li class = "user_info_item" >
+			Name: <%= @user.name %><br>
+			Questions: <%= @user.questions.count %><br>
+			Answers: <%= @user.answers.count %>
+		</li>
+		Questions
+		<% @user.questions.each do |question| %>
+			<li>
+				<%= link_to question.title, question_path(question) %>
+			</li>
+		<% end %><br><br>
+
+		Answers
+		<% @user.answers.each do |answer| %>
+			<li>
+				<%= link_to answer.question.title, question_path(answer.question) %>
+				<%=  %><br>
+				<%= answer.body %>
+			</li>
+		<% end %>
+		<li class = "user_buttons" >
+
+		  <%= button_to "Edit", edit_user_path(@user), {method: "get"} %>
+	    <%= button_to "Delete", @user, {method: "delete", confirm: "Are you sure you want to delete this user?"} %>
+		</li>
+	</ul>
+</div>
