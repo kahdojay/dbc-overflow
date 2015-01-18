@@ -6,6 +6,9 @@
   <%= f.submit 'Upvote' %>
 <% end %>
 
+<%= @answer.vote_count if @answer %>
+<%= @question.vote_count if @question %>
+
 <%= form_for :vote, url: '/votes/downvote' do |f|  %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :votable_type, value: votable_type %>
