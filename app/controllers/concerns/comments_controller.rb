@@ -3,12 +3,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @question = Question.find(@comment.get_question_id)
     if @comment.save
-      @question = Question.find(@comment.get_question_id)
       redirect_to question_path(@question)
     else
       flash[:alert] = "ERROR: #{@comment.errors.full_messages.join("; ")}"
-      render :new
+      redirect_to @question
     end
   end
 
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:commentable_id, :commentable_type, :body, :user_id)
     end
-    def q_params
-      params.require(:comment).permit(:question_id)
-    end
+    # def q_params
+    #   params.require(:comment).permit(:question_id)
+    # end
 end
