@@ -10,6 +10,8 @@ module AuthsHelper
   end
 
   def current_admin
-  	User.find(session[:id]).is_admin
+    if session[:id]
+    	User.find(session[:id]).is_admin
+    end
   end
 end
