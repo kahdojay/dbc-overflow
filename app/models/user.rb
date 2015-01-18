@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes
 
-  validates_presence_of :name, :password
+  validates_presence_of :name, :password_digest
   validates_uniqueness_of :name
 end
