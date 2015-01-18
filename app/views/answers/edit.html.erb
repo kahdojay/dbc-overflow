@@ -1,5 +1,4 @@
 <br>
-<%= flash.alert %>
 <%= form_for :answer, method: "put", url: {action: "update"} do |f| %>
   Body: <%= f.text_field :body %><br>
   <%= f.submit "Submit" %>
