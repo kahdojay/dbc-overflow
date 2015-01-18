@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <div class = "answer_buttons" >
-    <% if logged_in? && @qansweruser_id == current_user.id || current_user.is_admin %>
+    <% if logged_in? && @answer.user_id == current_user.id || current_user.is_admin %>
       <%= link_to_if(current_user, "Edit", { controller: "answers", action: "edit", question_id: @question.id }) %>
       <%= link_to_if(current_user, "Delete", { controller: "answers", action: "destroy", question_id: @question.id, id: @answer.id }) %>
     <% end %>
