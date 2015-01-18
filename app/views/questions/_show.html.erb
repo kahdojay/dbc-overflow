@@ -14,16 +14,10 @@
   </div>
 
   <ul class = "question_content" >
-<<<<<<< HEAD
-    <li class = "question_title" >
-      <a href="/questions/<%= question.id %>" id="<%= question.id %>"><h2><%= question.title %></h2></a>
-    <li><h4><%= question.updated_at %></h4></li>
-    <li><h4><%= link_to question.user.name, user_path(question.user) %></h4></li>
 
-=======
     <a href="/questions/<%=question.id%>"><h2><%= question.title %></h2></a>
     <h4><%= question.updated_at %></h4>
->>>>>>> Change links to buttons and more style.
+    <h4><%= link_to question.user.name, user_path(question.user) %></h4>
     </li>
     <li class = "question_body" >
       <%= question.body %>
