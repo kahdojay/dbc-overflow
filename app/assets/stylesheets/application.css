@@ -60,7 +60,7 @@ h2{
 
 h3{
   font-family: 'Abel', sans-serif;
-  margin: 20px;
+  margin: 10px;
   color: #1c6551;
   font-size: 1em;
 }
@@ -160,30 +160,59 @@ h4{
   width: 100%;
 }
 
-.comment_show {
-  clear: both;
+.question_comment_div{
+  /*background-color: #F5F5FC;*/
   margin-left: 95px;
+  margin-bottom: 95px;
 }
 
-ul li {
+.comment_show {
   clear: both;
-  margin: 0;
+  /*height: 25px;*/
+
+  /*border-left: 1px solid #B0C4DE;*/
+}
+.each_comment{
+  display: inline-block;
+  /*clear: both;*/
+  width: 100%;
+  /*margin: 0px;
+  /*border-top: 2px solid #B0C4DE;*/
+  border-bottom: 1.4px solid #B0C4DE;
+  margin: 5px;
+}
+
+
+
+.comment_list li {
+  /*margin: 0;*/
+  /*border-left: 2px solid #B0C4DE;
+  border-right: 2px solid #B0C4DE;
+  border-bottom: 1.4px solid #B0C4DE;
+  margin: 5px;
+  margin-bottom: 5px;*/
 }
 
 .comment_body {
+  /*width: 90%;*/
   float: left;
+  margin: 3px;
+  display: inline-block;
 }
 
 .comment_buttons {
   float: right;
+  font-size: 0.7em;
+  margin: 0 auto;
+
 }
 
 .comment_label {
-  margin-left: 95px;
+  font-size: 1.1em;
 }
 
-.add_comment {
-  margin-left: 95px;
+.add_comment form{
+
 }
 
 
