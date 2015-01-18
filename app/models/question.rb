@@ -15,7 +15,7 @@ class Question < ActiveRecord::Base
   end
 
   def create_tags(string)
-    string.split(',').each{ |tag| self.tags.create(name: tag)}
+    string.split(',').each{ |tag| self.tags.new(name: tag)}
   end
 
   def display_tags

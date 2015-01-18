@@ -7,8 +7,12 @@ class AnswersController < ApplicationController
 
   def create
     question = Question.find(params[:question_id])
-    answer = question.answers.create(answers_params)
-    redirect_to question_path(question)
+    @answer = Answer.new(answers_params)
+    if @answer.save
+    else
+      flash[:alert] = "ERROR: #{@answer.errors.full_messages.join("; ")}"
+    end
+    redirect_to question
   end
 
   def edit
@@ -37,7 +41,7 @@ class AnswersController < ApplicationController
   end
 
   def answers_params
-    params.require(:answer).permit(:body, :user_id)
+    params.require(:answer).permit(:body, :user_id, :question_id)
   end
 
 end
