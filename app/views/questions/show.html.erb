@@ -13,7 +13,7 @@
 
     <% @question.answers.each do |answer| %>
       <% @answer = answer %>
-      <%= render partial: "answers/show.html.erb", locals: {answer: answer} %>
+      <%= render partial: "answers/show.html.erb", locals: {answer: answer, question: @question} %>
 
       <div class='comment_div'>
         <%= render template: "comments/show.html.erb", locals: { comments: @answer.comments } %>

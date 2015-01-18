@@ -7,23 +7,23 @@
 
   <div class = "answer_buttons" >
     <% if logged_in? && answer.user_id == current_user.id || current_user.is_admin %>
-      <%= link_to_if(current_user, "Edit", { controller: "answers", action: "edit", question_id: @question.id }) %>
-      <%= link_to_if(current_user, "Delete", { controller: "answers", action: "destroy", question_id: @question.id, id: answer.id }) %>
+      <div class = "comment_buttons" >
+        <%= button_to "Edit", "/questions/#{question.id}/answers/#{answer.id}/edit", method: :get %>
+      </div>
+      <div class = "comment_buttons" >
+        <%= button_to "Delete", [question, answer], { method: "delete" } %>
+      </div>
     <% end %>
   </div>
 
   <div class = "answer_content" >
-    <ul>
-      <li>
-        <%= link_to answer.user.name, user_path(answer.user) %>
-      </li>
-      <li class = "answer_date" >
-        <%= answer.updated_at %>
-      </li>
-      <li class = "answer_body" >
-        <%= answer.body %>
-      </li>
-    </ul>
+    <%= link_to answer.user.name, user_path(answer.user) %>
+    <p class = "answer_date" >
+      <%= answer.updated_at %>
+    </p>
+    <p class = "answer_body" >
+      <%= answer.body %>
+    </p>
   </div>
 
 </div>

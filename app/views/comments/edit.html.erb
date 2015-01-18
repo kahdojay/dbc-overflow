@@ -1,12 +1,8 @@
-<%= form_for :comment, url: {action: 'update'}, method: "patch" do |f| %>
+<div class='new_form'>
+  <%= form_for :comment, url: {action: 'update'}, method: "patch" do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %><br><br>
+  <%= f.text_area :body, cols: '92', rows: '2' %><br><br>
+  <%= f.submit "Edit Comment" %>
 
-
-<%= f.hidden_field :user_id, value: current_user.id %><br><br>
-
-
-<%= f.text_area :body %><br><br>
-
-<%= f.submit "Edit Comment" %>
-
-
-<% end %>
+  <% end %>
+</div>
