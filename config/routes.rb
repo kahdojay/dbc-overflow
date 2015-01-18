@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#logout'
   get '/search', to: 'welcome#search'
   get '/signup', to: 'users#new'
+  get '/unanswered', to: 'welcome#unanswered_questions'
 
   resources :users
   resources :comments, only: [:create, :edit, :destroy, :update]
