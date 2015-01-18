@@ -1,8 +1,12 @@
 <h3>Comments</h3>
 <ul>
   <% comments.each do |c| %>
-    <li><%= c.body %></li>
-    <%= button_to "Edit", "/comments/#{c.id}/edit", method: :get %>
-    <%= button_to "Delete", c, { method: "delete" } %>
+    <li>
+    	<ul class = "comment_show" >
+    		<li class = "comment_body" ><%= c.body %></li>
+        <li class = "comment_buttons" ><%= button_to "Edit", "/comments/#{c.id}/edit", method: :get %></li>
+        <li class = "comment_buttons" ><%= button_to "Delete", c, { method: "delete" } %></li>
+      </ul>
+    </li>
   <% end %>
 </ul>

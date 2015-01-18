@@ -1,7 +1,9 @@
 <h2>Users</h2>
-<% @users.each do |user| %>
-	<div class = "user_info">
-		<span><%= user.name %></span>
-		<span><%= user.is_admin.to_s %></span>
-	</div>
-<% end %>
+<ul class = "user_list" >
+	<% @users.each do |user| %>
+		<li class = "user_item" >
+			<% @user = user %>
+			<%= render template: "users/show.html.erb", locals: { user: @user } %>
+		</li>
+	<% end %>
+</ul>
