@@ -13,11 +13,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		redirect_to :root unless current_admin || current_user.id == @user.id
 	end
 
 	def edit
 		@user = User.find(params[:id])
+		redirect_to '/login' if current_user
 		redirect_to :root unless current_admin || current_user.id == @user.id
 	end
 
