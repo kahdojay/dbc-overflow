@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   include AuthsHelper
 
   def index
-    redirect_to root_path
+    @questions = Question.all.order('created_at DESC')
   end
 
   def new
@@ -10,39 +10,34 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @answer = Answer.new
+    @answer_new = Answer.new
   end
 
   def create
     @question = Question.new(question_params)
     if @question.save
-    @question.create_tags(params[:question][:tags]) if params[:question][:tags]
       redirect_to question_path(@question)
     else
-      flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
+      #error_message?
       render :new
     end
   end
 
   def edit
     @question = Question.find(params[:id])
-    redirect_to root_path unless @question.user_id == current_user.id
   end
 
   def update
     @question = Question.find(params[:id])
-    redirect_to root_path unless @question.user_id == current_user.id
     if @question.update(question_params)
       redirect_to @question
     else
-      flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
       render :edit
     end
   end
 
   def destroy
     @question = Question.find(params[:id])
-    redirect_to root_path unless @question.user_id == current_user.id
     @question.destroy
     redirect_to root_path
   end
