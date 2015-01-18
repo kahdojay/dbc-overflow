@@ -17,8 +17,11 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-		redirect_to '/login' if current_user
-		redirect_to :root unless current_admin || current_user.id == @user.id
+		if logged_in?
+			redirect_to :root unless current_admin || current_user.id == @user.id
+		else
+			redirect_to '/login'
+		end
 	end
 
 	def create
