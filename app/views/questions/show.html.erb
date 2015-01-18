@@ -4,7 +4,7 @@
       <%= render partial: "questions/show.html.erb", locals: {question: @question} %>
       <%= render template: "comments/show.html.erb", locals: { comments: @question.comments } %>
       <% if logged_in? %>
-        <%= render template: "comments/new.html.erb", locals: { q_id: @question.id, commentable_id: @question.id, commentable_type: "Question"} %></div>
+        <%= render partial: "comments/new", locals: { q_id: @question.id, commentable_id: @question.id, commentable_type: "Question"} %></div>
     <% end %>
     <p class = "type_titles" >Answers :</p>
 
@@ -15,7 +15,7 @@
       <% if logged_in? %>
       <br/>
       <br/>
-        <p><%= render template: "comments/new.html.erb", locals: { answer_id: @answer.id, commentable_id: @answer.id, commentable_type: "Answer"} %></p>
+        <p><%= render partial: "comments/new", locals: { answer_id: @answer.id, commentable_id: @answer.id, commentable_type: "Answer"} %></p>
       <% end %>
 
 
