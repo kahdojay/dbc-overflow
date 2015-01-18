@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ html,body {
+    height:100%;
+}
+
 .wrapper {
   width: 100%;
   height: 100%;
@@ -71,6 +75,13 @@ h4{
   padding: 5px;
 }
 
+.answer_body{
+  font-size: 1.3em;
+  font-family: 'Abel', sans-serif;
+  margin: 20px;
+  padding: 5px;
+}
+
 .new_answer{
   font-size: 1.3em;
   font-family: 'Abel', sans-serif;
@@ -78,8 +89,76 @@ h4{
   padding: 5px;
 }
 
+.type_titles {
+  font-size: 24px;
+}
+
+.question_main {
+}
+
+.question_show_partial {
+  clear: both;
+  height: 100%;
+}
+
+.question_votes {
+  float: left;
+  width: 95px;
+  height: 100%;
+}
+
+.question_buttons {
+  float: right;
+}
+
+.question_content {
+  margin-left: 95px;
+}
+
+.question_title {
+  width: 100%;
+}
+
+.question_body {
+  width: 100%;
+}
+
+.question_main {
+}
+
+.answer_show_partial {
+  clear: both;
+}
+
+.answer_votes {
+  float: left;
+  width: 95px;
+  height: 100%;
+}
+
+.answer_buttons {
+  float: right;
+}
+
+.answer_content {
+  margin-left: 95px;
+}
+
+.answer_body {
+  width: 100%;
+}
+
+.answer_show_partial {
+  clear: both;
+}
+
+.answer_body {
+  width: 100%;
+}
+
 .comment_show {
   clear: both;
+  margin-left: 95px;
 }
 
 .comment_body {
@@ -88,6 +167,14 @@ h4{
 
 .comment_buttons {
   float: right;
+}
+
+.comment_label {
+  margin-left: 95px;
+}
+
+.add_comment {
+  margin-left: 95px;
 }
 
 
