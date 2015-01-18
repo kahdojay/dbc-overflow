@@ -9,8 +9,9 @@ describe CommentsController do
     end
 
     it 'does not save a comment without a body' do
+      @question = create(:question, id: 1)
       expect{
-        post :create, comment: attributes_for(:invalid_comment)
+        post :create, comment: attributes_for(:invalid_comment, commentable_id: 1, commentable_type: 'Question')
         }.to change(Comment, :count).by(0)
     end
   end
