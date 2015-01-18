@@ -24,7 +24,7 @@ class Question < ActiveRecord::Base
   def self.search(words)
     matches = []
     words.split(' ').each do |word|
-      matches << Question.all.select { |q| q.title.include?(word) || q.body.include?(word) }
+      matches << Question.all.select { |q| q.title.downcase.include?(word.downcase) || q.body.downcase.include?(word.downcase) }
     end
     matches.flatten.uniq
   end
