@@ -1,5 +1,5 @@
 <div class='container'>
-  <%= button_to "Unanswered Questions", {action: "unanswered_questions"}, method: "get" %>
+  <%= button_to "Unanswered Questions", unanswered_path, method: "get" %>
   <% @questions.each do |question| %>
     <%= render partial: "questions/show", locals: {question: question} %>
   <% end %>
