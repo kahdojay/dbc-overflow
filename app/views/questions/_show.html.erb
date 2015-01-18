@@ -17,6 +17,8 @@
     <li class = "question_title" >
       <a href="/questions/<%= question.id %>" id="<%= question.id %>"><h2><%= question.title %></h2></a>
     <li><h4><%= question.updated_at %></h4></li>
+    <li><h4><%= link_to question.user.name, user_path(question.user) %></h4></li>
+
     </li>
     <li class = "question_body" >
       <%= question.body %>
