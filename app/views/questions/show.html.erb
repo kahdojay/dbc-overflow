@@ -23,11 +23,11 @@
       <br/>
 
       <br/>
-    <div class = "answer_the_question" >
-        <% if logged_in? %>
-          <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
-        <% end %>
-    </div>
+
+    <% if logged_in? %>
+      <%= render template: "answers/new.html.erb", locals: { question: @question, answer: @answer} %>
+    <% end %>
+
 
 </div>
 
