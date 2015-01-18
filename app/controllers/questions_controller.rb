@@ -25,12 +25,13 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    tags = @question.create_tags(params[:question][:tags])
     if @question.save
-      @question.create_tags(params[:question][:tags]) if params[:question][:tags]
+      tags.save if tags
       redirect_to question_path(@question)
     else
       flash[:alert] = "ERROR: #{@question.errors.full_messages.join("; ")}"
-      render :new
+      redirect_to :back
     end
   end
 
