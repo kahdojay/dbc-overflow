@@ -2,21 +2,43 @@ require "rails_helper"
 
 describe CommentsController do
   describe 'POST #create' do
-    it 'adds a comment to the comments table'
-    it 'does not save a comment without a body'
+    it 'adds a comment to the comments table' do
+      expect{
+        create(:q_comment)
+        }.to change(Comment, :count).by(1)
+    end
+
+    it 'does not save a comment without a body' do
+      expect{
+        post :create, comment: attributes_for(:invalid_comment)
+        }.to change(Comment, :count).by(0)
+    end
   end
 
   describe 'GET #edit' do
-    it 'renders an edit form with original body text'
+    it 'assigns the requested comment to @comment' do
+      comment = create(:q_comment)
+      get :edit, id: comment.id
+      expect(assigns(:comment)).to eq(comment)
+    end
+
+    it 'renders an edit form with original body text' do
+      comment = create(:q_comment)
+      get :edit, id: comment.id
+      expect(response).to render_template :edit
+    end
   end
 
-  describe 'PUT #update' do
-    it 'updates the comment in the comments table'
-    it 'does not update a comment without a body'
-  end
+  describe 'PATCH #update' do
+    before :each do
+      @question = create(:question, id: 1)
+      @comment = create(:q_comment)
+    end
 
-  describe 'DELETE #destroy' do
-    it 'deletes the comment from the comments table'
-    it 're-renders the same page after delete'
+    it 'updates the comment in the comments table' do
+      patch :update, id: @comment, comment: attributes_for(:comment, body: "different!")
+      @comment.reload
+      expect(@comment.body).to eq("different!")
+    end
   end
 end
