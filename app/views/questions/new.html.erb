@@ -4,7 +4,12 @@
     <h2><%= label :title, "Title: " %></h2>
     <%= f.text_field :title %><br><br>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.text_area :body, cols: '92', rows: '10' %><br><br>
+    <div class='question-text'>
+      <%= f.text_area :body, cols: '92', rows: '10' %>
+    </div>
+    <div class='question-text'>
+      <p> Preview text </p>
+    </div><br><br>
     <h2><%= f.label :tags %></h2>
     <%= f.text_field :question_tags, value: '', placeholder: "add tags" %><br><br>
 

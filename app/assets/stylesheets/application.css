@@ -139,6 +139,16 @@ span{
   margin: 0 0 5px 25px;
 }
 
+.question-text {
+  display: inline-block;
+  max-width: 50%;
+  vertical-align: top;
+}
+
+.question-text p {
+  float: right;
+}
+
 .answer_show_partial {
   clear: both;
 }

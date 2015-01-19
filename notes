@@ -51,3 +51,10 @@ implement downvoting (two-way voting with neutral state)
     if it does and it's a downvote, delete the current record
     if it doesn't, create an upvote
 make possible to set vote back to neutral (neither up nor down)
+
+MARKDOWN WIDGET
+Build a preview area.
+on every keyup, update the preview area with what's in the new question text_field
+add logic so that the preview area can translate markdown syntax
+
+
