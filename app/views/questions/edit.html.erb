@@ -1,7 +1,8 @@
 <div class='new_form'>
+  <h2>Edit Question</h2></br>
   <%= form_for :question, url: {action: 'update'}, method: "patch" do |f| %>
 
-  <h2><%= label :title, "Title: " %></h2>
+  <h3><%= label :title, "Title: " %></h3>
   <%= f.text_field :title %>
   <%= f.hidden_field :user_id, value: current_user.id %><br><br>
   <%= f.text_area :body, cols: '92', rows: '10' %><br><br>

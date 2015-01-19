@@ -3,9 +3,8 @@
   <% comments.each do |c| %>
     <li>
       <div class='each_comment'>
-        <div><%= link_to c.user.name, user_path(c.user) %></div>
-        <div><%= c.created_at %></div>
-        <div class = "comment_body" ><%= c.body %></div>
+        <div></div>
+        <div class = "comment_body" ><%= c.body %> - <span><%= link_to c.user.name, user_path(c.user) %> <%= c.created_at %></span></div>
         <div class = "comment_buttons" >
           <%= button_to "Edit", "/comments/#{c.id}/edit", method: :get %>
         </div>
