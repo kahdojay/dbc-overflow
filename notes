@@ -55,6 +55,9 @@ make possible to set vote back to neutral (neither up nor down)
 MARKDOWN WIDGET
 Build a preview area.
 on every keyup, update the preview area with what's in the new question text_field
+  listen for key up events - on every key up..
+  grab the text from the new question field
+  then render it in the preview area
 add logic so that the preview area can translate markdown syntax
 
 

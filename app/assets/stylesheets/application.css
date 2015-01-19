@@ -141,7 +141,9 @@ span{
 
 .question-text {
   display: inline-block;
-  max-width: 50%;
+  max-width: 40%;
+  max-height: 12em;
+  overflow: scroll;
   vertical-align: top;
 }
 
