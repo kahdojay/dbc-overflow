@@ -50,12 +50,8 @@ class UsersController < ApplicationController
 	def destroy
 		@user = User.find(params[:id])
 		redirect_to :root unless current_admin || current_user.id == @user.id
-		if @user.destroy
-			redirect_to :logout
- 		else
-			set_error("there was a problem deleting the account")
-			render :back
-		end
+		@user.update(is_deleted: true, password: 'todo: make this sensible')
+		redirect_to :logout
 	end
 
 	private
