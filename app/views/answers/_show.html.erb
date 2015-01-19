@@ -6,7 +6,7 @@
   </div>
 
   <div class = "answer_buttons" >
-    <% if logged_in? && answer.user_id == current_user.id || current_user.is_admin %>
+    <% if logged_in? && (answer.user_id == current_user.id || current_user.is_admin) %>
       <div class = "comment_buttons" >
         <%= button_to "Edit", "/questions/#{question.id}/answers/#{answer.id}/edit", method: :get %>
       </div>
