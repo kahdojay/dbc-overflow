@@ -14,3 +14,39 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$( document ).ready(function() {
+
+  $(".markdown_input").keyup(function(event) {
+    var $target, $inputText;
+    $target = $(event.target)
+    $inputText = $target.val();
+    showPreview($inputText);
+  });
+
+  function showPreview(inputText) {
+    var outputText = markdownToHtml(inputText)
+    $(".html_output").html(outputText)
+  };
+
+  function markdownToHtml(inputText){
+    var reg = /[*]{2}/;
+    while(inputText.match(reg)) {
+      inputText = inputText.replace(reg, "<strong>");
+      inputText = inputText.replace(reg, "</strong>");
+    }
+    var reg = /[*]/;
+    while(inputText.matc h(reg)) {
+      inputText = inputText.replace(reg, "<em>");
+      inputText = inputText.replace(reg, "</em>");
+    }
+    var reg = /\n/;
+    while(inputText.match(reg)) {
+      inputText = inputText.replace(reg, "<br>");
+    }
+
+    return inputText;
+  };
+
+});
