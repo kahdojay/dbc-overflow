@@ -1,11 +1,13 @@
-// on every keyup, look at the text field, show it in preview
-$(document).ready(function() {
-  $('#new-question').on('keyup', function(){
-    // grab the #new-question html content
-    newQuestion = $('#new-question').find('textarea').val()
-    console.log(newQuestion)
-    // replace the #question-preview html content
-    $('#question-preview').empty()
-    $('#question-preview').append(newQuestion)
-  })
-})
+function MarkdownWidget(sourceId, previewDiv) {
+  this.newQuestionId = sourceId
+  this.preview =  $(previewDiv)
+}
+
+MarkdownWidget.prototype.getQuestion = function() {
+  this.newQuestion = $(this.newQuestionId).find('textarea').val()
+}
+MarkdownWidget.prototype.renderMarkdown = function() {
+  this.getQuestion()
+  $('#question-preview').empty()
+  $('#question-preview').html(this.newQuestion)
+  }
