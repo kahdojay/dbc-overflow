@@ -18,6 +18,8 @@ describe SessionsController do
       post :create, user: @user.attributes
     end
 
+    # don't commit commented-out noise
+
     # it 'clears the session[:id]' do
     #   expect(session[:id]).to eq(@user.id)
     #   get :logout, id: @user

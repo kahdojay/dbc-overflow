@@ -3,6 +3,7 @@
   <%= form_for [@question, answer] do |f| %>
     <p><%= f.text_area :body, placeholder: 'add an answer', cols: '92', rows: '10' %></p>
     <%= f.hidden_field :user_id, value: current_user.id %>
+    <%# since we added smarts on the controller, we don't have to pass this - yay! %>
     <%= f.hidden_field :question_id, value: @question.id %>
     <p><%= f.submit "Submit" %></p>
   <% end %>

@@ -1,7 +1,7 @@
 <div class = "question_show_partial" >
   <div class = "question_votes" >
     <% if logged_in? %>
-       <%= render partial: "votes/vote_buttons", locals: {question: question, votable_type: "Question", votable_id: question.id, vote_count: question.vote_count } %>
+      <%= render partial: "votes/vote_buttons", locals: {votable: question } %>
      <% end %>
   </div>
   <div class = "question_buttons" >
@@ -14,6 +14,15 @@
   </div>
 
   <ul class = "question_content" >
+
+    <%# the HTML here is a bit wonky.
+      a UL should have LIs immediately under it, it goesn't make sense for a list to have multiple headings as children
+
+    Also, prefer:
+      link_to question.title, question class: "big-title-text"
+
+    It's the HTML structure that's at issue here.
+    %>
 
     <a href="/questions/<%=question.id%>"><h2><%= question.title %></h2></a>
     <h4><%= question.updated_at %></h4>
