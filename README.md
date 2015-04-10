@@ -1,5 +1,5 @@
 # DBC Overflow
-Purpose: create a StackOverflow clone for Dev Bootcamp Assessment during Phase 2.
+Purpose: create a StackOverflow clone for Dev Bootcamp Assessment during Phase 3.
 
 User Stories:
 
