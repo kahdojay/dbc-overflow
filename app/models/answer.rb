@@ -9,4 +9,8 @@ class Answer < ActiveRecord::Base
   def vote_count
     self.votes.where(upvote: true).count - self.votes.where(upvote: false).count
   end
+
+  def is_owned_by?(potential_owner)
+    user_id == potential_owner.id
+  end
 end

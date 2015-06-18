@@ -4,12 +4,14 @@ require 'rails_helper'
 describe UsersController do
 
 	describe 'GET #index' do
+    let(:admin) { create(:admin) }
 
-		before :each do
-			get :index
-		end
+    before(:each) do
+      session[:id] = admin.id
+    end
 
 		it "renders the #index template" do
+			get :index
 			expect(response).to render_template :index
 		end
 
@@ -30,6 +32,7 @@ describe UsersController do
 	describe 'POST #create' do
 
 		before :each do
+      # shoulda used a factory
 			@user = {name: "butch", password: "123", password_confirmation: "123"}
 			post :create, user: @user
 		end
@@ -54,13 +57,14 @@ describe UsersController do
 	end
 
 	describe 'GET #edit' do
+    let(:admin) { create( :admin ) }
 
 		before :each do
-			@user = FactoryGirl.create( :user )
-			get :edit, id: @user.id
+      session[:id] = admin.id
 		end
 
 		it "renders the #show template" do
+			get :edit, id: admin.id
 			expect(response).to render_template :edit
 		end
 

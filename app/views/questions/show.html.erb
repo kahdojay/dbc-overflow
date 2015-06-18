@@ -16,7 +16,7 @@
       <%= render partial: "answers/show.html.erb", locals: {answer: answer, question: @question} %>
 
       <div class='comment_div'>
-        <%= render template: "comments/show.html.erb", locals: { comments: @answer.comments } %>
+        <%= render template: "comments/show", locals: { comments: @answer.comments } %>
         <% if logged_in? %>
           <p><%= render partial: "comments/new", locals: { answer_id: @answer.id, commentable_id: @answer.id, commentable_type: "Answer"} %></p>
         <% end %>

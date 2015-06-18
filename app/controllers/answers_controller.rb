@@ -7,24 +7,21 @@ class AnswersController < ApplicationController
 
   def create
     question = Question.find(params[:question_id])
-    @answer = Answer.new(answers_params)
-    if @answer.save
-    else
-      flash[:alert] = "ERROR: #{@answer.errors.full_messages.join("; ")}"
-    end
+    @answer = question.answers.create(answer_params)
+    set_error_flash(@question) unless @answer.valid?
     redirect_to question
   end
 
   def edit
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
-    redirect_to root_path unless @answer.user_id == current_user.id
+    redirect_to root_path unless @answer.is_owned_by?(current_user)
   end
 
   def update
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
-    redirect_to root_path unless @answer.user_id == current_user.id
+    redirect_to root_path unless @answer.is_owned_by?(current_user)
     if @answer.update_attributes(answers_params)
       redirect_to question_path(@answer.question_id)
     else

@@ -11,6 +11,7 @@
 		<% @user.answers.each do |answer| %>
 			<li>
 				<%= link_to answer.question.title, question_path(answer.question) %>
+        <%# what are you....? %>
 				<%=  %><br>
 				<%= answer.body %>
 			</li>

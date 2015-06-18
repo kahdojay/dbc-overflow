@@ -1,7 +1,13 @@
 <div class = "answer_show_partial" >
   <div class = "answer_votes" >
     <% if logged_in? %>
-      <%= render partial: "votes/vote_buttons", locals: {answer: answer, votable_type: "Answer", votable_id: answer.id, vote_count: answer.vote_count } %>
+      <%= render partial: "votes/vote_buttons", locals: {votable: answer } %>
+  <%# this partial is pretty nice.
+
+  but what's happening is that you're hiding all the polymorphic logic inside of the view.  The controller isthe right
+  place for making this sort of a decision.  
+  %>
+
     <% end %>
   </div>
 

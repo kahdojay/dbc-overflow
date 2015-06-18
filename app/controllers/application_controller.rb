@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   after_action do
     flash[:alert] = nil
   end
+
+  private
+    def set_error_flash(error_object)
+      flash[:alert] = "ERROR: #{error_object.errors.full_messages.join("; ")}"
+    end
 end

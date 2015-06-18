@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		admin_param_fix
+    admin_param_fix! #hm....this name...suspicious.....
 		redirect_to :root unless current_user.id == @user.id
 		if @user.update(user_params)
 			redirect_to @user
@@ -60,7 +60,10 @@ class UsersController < ApplicationController
 			params.require(:user).permit(:name, :password, :password_confirmation, :password_digest, :is_admin)
 		end
 
-		def admin_param_fix
+    # Generally we think of the params as being "set" from the view.  We might
+    # want to take a value and alter it, but we would not want to change the
+    # params hash, typically.  You might say something like...
+		def admin_param_fix!
 			params[:user][:is_admin] = param_to_bool(params[:user][:is_admin])
 		end
 
